@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏅 Top 10 Posts da Semana — CONCEITO MIKA Intelligence · 2026-05-11 a 2026-05-17</title>
+<style>
+  :root {
+    --bg: #0d0d0f; --surface: #16161a; --surface2: #1e1e24; --surface3: #232330;
+    --border: #2a2a35; --border2: #35354a;
+    --accent: #c8a96e; --accent2: #7c6fcd; --accent3: #4ecdc4; --accent4: #e09a4a;
+    --text: #e8e8f0; --muted: #7a7a8c; --muted2: #5a5a6a;
+    --green: #52d48a; --red: #e05c5c;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.5; min-height: 100vh; }
+  a { color: var(--accent3); text-decoration: none; }
+  .header { background: linear-gradient(135deg, #16161a 0%, #1a1624 100%); border-bottom: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .header-title h1 { font-size: 20px; font-weight: 700; color: var(--accent); }
+  .header-title p { font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .header-side { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .header-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 6px 16px; font-size: 12px; color: var(--muted); }
+  .header-badge span { color: var(--accent); font-weight: 600; }
+  .back-link { font-size: 12px; color: var(--accent3); border: 1px solid rgba(78,205,196,.25); border-radius: 6px; padding: 5px 14px; }
+  .back-link:hover { background: rgba(78,205,196,.08); }
+  .container { padding: 32px 40px; max-width: 1600px; margin: 0 auto; }
+  .summary-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .sum-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; position: relative; overflow: hidden; }
+  .sum-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); }
+  .sum-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 4px; font-weight: 600; }
+  .sum-value { font-size: 24px; font-weight: 800; color: var(--accent); letter-spacing: -.5px; }
+  .sum-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .filter-bar { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 20px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .filter-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; margin-right: 4px; }
+  .filter-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); border-radius: 20px; padding: 5px 14px; font-size: 12px; cursor: pointer; transition: all .15s; }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(200,169,110,.08); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  @media (max-width: 1300px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+  .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .15s, box-shadow .2s; display: flex; flex-direction: column; }
+  .post-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(200,169,110,.12); }
+  .post-card.card-mika { border-color: rgba(200,169,110,.4); box-shadow: 0 0 0 1px rgba(200,169,110,.15) inset; }
+  .post-rank-bar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px 8px; border-bottom: 1px solid var(--border); }
+  .rank-medal { font-size: 22px; line-height: 1; }
+  .rank-score { font-size: 10px; color: var(--muted); background: var(--surface2); border-radius: 4px; padding: 2px 7px; }
+  .rank-score span { color: var(--accent3); font-weight: 700; }
+  .embed-wrap { background: #f0f0f0; min-height: 380px; display: flex; align-items: flex-start; justify-content: center; overflow: hidden; position: relative; }
+  .embed-wrap .instagram-media { margin: 0 !important; min-width: 0 !important; width: 100% !important; max-width: 100% !important; border-radius: 0 !important; border: none !important; }
+  .embed-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f5f5f5; color: #888; font-size: 12px; gap: 8px; pointer-events: none; }
+  .embed-loading .spinner { width: 24px; height: 24px; border: 2px solid #ddd; border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .post-meta { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; }
+  .post-brand { font-size: 13px; font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 6px; }
+  .mika-pill { background: var(--accent); color: #0d0d0f; border-radius: 3px; padding: 1px 6px; font-size: 9px; font-weight: 800; letter-spacing: .5px; }
+  .post-inf { font-size: 11px; color: var(--accent2); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .pill-type { display: inline-block; font-size: 9px; padding: 1px 7px; border-radius: 4px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  .pill-reels { background: rgba(124,111,205,.15); color: #a89aff; }
+  .pill-carrossel { background: rgba(78,205,196,.12); color: var(--accent3); }
+  .pill-single { background: rgba(224,154,74,.12); color: var(--accent4); }
+  .post-metrics { display: flex; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
+  .pm { font-size: 11px; color: var(--text); display: flex; align-items: center; gap: 3px; }
+  .pm-er { color: var(--accent3); font-weight: 600; }
+  .pm-icon { font-size: 12px; }
+  .post-link { display: inline-block; margin-top: 6px; font-size: 11px; color: var(--accent3); font-weight: 600; border: 1px solid rgba(78,205,196,.25); border-radius: 4px; padding: 4px 10px; text-align: center; transition: background .15s; }
+  .post-link:hover { background: rgba(78,205,196,.08); }
+  .insight-box { background: rgba(200,169,110,.05); border: 1px solid rgba(200,169,110,.18); border-radius: 8px; padding: 18px 22px; margin-top: 32px; }
+  .insight-box h4 { font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .insight-box p { font-size: 12.5px; color: var(--muted); line-height: 1.85; }
+  .insight-box strong { color: var(--text); }
+  .footer { border-top: 1px solid var(--border); padding: 18px 40px; text-align: center; font-size: 11px; color: var(--muted2); margin-top: 40px; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted2); }
+  @media (max-width: 1000px) { .summary-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px)  { .summary-row { grid-template-columns: 1fr; } .header, .container, .footer { padding-left: 16px; padding-right: 16px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">
+    <h1>🏅 Top 10 Melhores Posts da Semana</h1>
+    <p>Score: likes × 5 + comentários × 10 · Janela 2026-05-11 a 2026-05-17 · Views indisponíveis no pipeline atual</p>
+  </div>
+  <div class="header-side">
+    <div class="header-badge">CONCEITO MIKA · <span>B2B Intelligence</span></div>
+    <a class="back-link" href="dashboard_2026-05-18.html">← Voltar ao dashboard</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="summary-row">
+    <div class="sum-card">
+      <div class="sum-label">🥇 Maior score absoluto</div>
+      <div class="sum-value">2325</div>
+      <div class="sum-sub">Rock Lola</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-label">📐 Reels nos top 10</div>
+      <div class="sum-value">60%</div>
+      <div class="sum-sub">6 de 10 posts</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-label">🤝 Posts com collab</div>
+      <div class="sum-value">1/10</div>
+      <div class="sum-sub">Posts com menção a creator</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-label">🏆 Marca mais representada</div>
+      <div class="sum-value">2 posts</div>
+      <div class="sum-sub">Rock Lola</div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-label">Filtrar:</span>
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="reels">Reels</button>
+    <button class="filter-btn" data-filter="carrossel">Carrossel</button>
+    <button class="filter-btn" data-filter="single">Single</button>
+    <button class="filter-btn" data-filter="mika">Só CONCEITO MIKA</button>
+  </div>
+
+  <div class="grid" id="posts-grid">
+    <div class="post-card" data-brand="Rock Lola" data-type="reels">
+      <div class="post-rank-bar">
+        <span class="rank-medal">🥇</span>
+        <span class="rank-score">Score: <span>2325</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYQOQ2ihB1T/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">Rock Lola </div>
+        <div class="post-inf">✦ Sem collab · 12/05 18:20 · <span class="pill-type pill-reels">Reels</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 283 likes</div><div class="pm"><span class="pm-icon">💬</span> 91</div><div class="pm pm-er"><span class="pm-icon">📈</span> 0,1341% ER</div></div>
+        <a href="https://www.instagram.com/p/DYQOQ2ihB1T/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card" data-brand="Closet Deluxe" data-type="carrossel">
+      <div class="post-rank-bar">
+        <span class="rank-medal">🥈</span>
+        <span class="rank-score">Score: <span>960</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYaHXdSgLei/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">Closet Deluxe </div>
+        <div class="post-inf">✦ Sem collab · 16/05 14:32 · <span class="pill-type pill-carrossel">Carrossel</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 144 likes</div><div class="pm"><span class="pm-icon">💬</span> 24</div><div class="pm pm-er"><span class="pm-icon">📈</span> 0,2140% ER</div></div>
+        <a href="https://www.instagram.com/p/DYaHXdSgLei/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card" data-brand="Cordoce" data-type="reels">
+      <div class="post-rank-bar">
+        <span class="rank-medal">🥉</span>
+        <span class="rank-score">Score: <span>925</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYcauVwpIfm/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">Cordoce </div>
+        <div class="post-inf">✦ Sem collab · 17/05 12:00 · <span class="pill-type pill-reels">Reels</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 123 likes</div><div class="pm"><span class="pm-icon">💬</span> 31</div><div class="pm pm-er"><span class="pm-icon">📈</span> 0,4889% ER</div></div>
+        <a href="https://www.instagram.com/p/DYcauVwpIfm/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card" data-brand="Rock Lola" data-type="reels">
+      <div class="post-rank-bar">
+        <span class="rank-medal">4️⃣</span>
+        <span class="rank-score">Score: <span>785</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYUyG3OvGYh/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">Rock Lola </div>
+        <div class="post-inf">✦ Sem collab · 14/05 12:55 · <span class="pill-type pill-reels">Reels</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 97 likes</div><div class="pm"><span class="pm-icon">💬</span> 30</div><div class="pm pm-er"><span class="pm-icon">📈</span> 0,0455% ER</div></div>
+        <a href="https://www.instagram.com/p/DYUyG3OvGYh/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card" data-brand="Karmani" data-type="carrossel">
+      <div class="post-rank-bar">
+        <span class="rank-medal">5️⃣</span>
+        <span class="rank-score">Score: <span>605</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYXWH2OnPAF/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">Karmani </div>
+        <div class="post-inf">✦ Sem collab · 15/05 12:44 · <span class="pill-type pill-carrossel">Carrossel</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 107 likes</div><div class="pm"><span class="pm-icon">💬</span> 7</div><div class="pm pm-er"><span class="pm-icon">📈</span> 0,0364% ER</div></div>
+        <a href="https://www.instagram.com/p/DYXWH2OnPAF/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card card-mika" data-brand="CONCEITO MIKA" data-type="reels" data-mika="true">
+      <div class="post-rank-bar">
+        <span class="rank-medal">6️⃣</span>
+        <span class="rank-score">Score: <span>565</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYX3E7lqV38/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">CONCEITO MIKA <span class="mika-pill">MIKA</span></div>
+        <div class="post-inf">✦ Sem collab · 15/05 17:32 · <span class="pill-type pill-reels">Reels</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 61 likes</div><div class="pm"><span class="pm-icon">💬</span> 26</div><div class="pm pm-er"><span class="pm-icon">📈</span> 1,9773% ER</div></div>
+        <a href="https://www.instagram.com/p/DYX3E7lqV38/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card" data-brand="Betelgeuse" data-type="carrossel">
+      <div class="post-rank-bar">
+        <span class="rank-medal">7️⃣</span>
+        <span class="rank-score">Score: <span>535</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYSwvqrkdLj/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">Betelgeuse </div>
+        <div class="post-inf">✦ Sem collab · 13/05 18:00 · <span class="pill-type pill-carrossel">Carrossel</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 93 likes</div><div class="pm"><span class="pm-icon">💬</span> 7</div><div class="pm pm-er"><span class="pm-icon">📈</span> 0,0646% ER</div></div>
+        <a href="https://www.instagram.com/p/DYSwvqrkdLj/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card" data-brand="Closet Deluxe" data-type="carrossel">
+      <div class="post-rank-bar">
+        <span class="rank-medal">8️⃣</span>
+        <span class="rank-score">Score: <span>535</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYcmweojmYb/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">Closet Deluxe </div>
+        <div class="post-inf">🤝 @brunofonze · 17/05 13:45 · <span class="pill-type pill-carrossel">Carrossel</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 85 likes</div><div class="pm"><span class="pm-icon">💬</span> 11</div><div class="pm pm-er"><span class="pm-icon">📈</span> 0,1223% ER</div></div>
+        <a href="https://www.instagram.com/p/DYcmweojmYb/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card" data-brand="La Chocolê" data-type="reels">
+      <div class="post-rank-bar">
+        <span class="rank-medal">9️⃣</span>
+        <span class="rank-score">Score: <span>420</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYN4Ak8NSGx/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">La Chocolê </div>
+        <div class="post-inf">✦ Sem collab · 11/05 20:28 · <span class="pill-type pill-reels">Reels</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> — likes</div><div class="pm"><span class="pm-icon">💬</span> 42</div><div class="pm pm-er"><span class="pm-icon">📈</span> 0,0134% ER</div></div>
+        <a href="https://www.instagram.com/p/DYN4Ak8NSGx/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div><div class="post-card card-mika" data-brand="CONCEITO MIKA" data-type="reels" data-mika="true">
+      <div class="post-rank-bar">
+        <span class="rank-medal">🔟</span>
+        <span class="rank-score">Score: <span>405</span></span>
+      </div>
+      <div class="embed-wrap">
+        <div class="embed-loading"><div class="spinner"></div>Carregando post...</div>
+        <blockquote class="instagram-media" data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DYRwaGmujio/?utm_source=ig_embed"
+          data-instgrm-version="14" style="width:100%;min-width:0;max-width:100%;margin:0;">
+        </blockquote>
+      </div>
+      <div class="post-meta">
+        <div class="post-brand">CONCEITO MIKA <span class="mika-pill">MIKA</span></div>
+        <div class="post-inf">✦ Sem collab · 13/05 09:28 · <span class="pill-type pill-reels">Reels</span></div>
+        <div class="post-metrics"><div class="pm"><span class="pm-icon">❤️</span> 37 likes</div><div class="pm"><span class="pm-icon">💬</span> 22</div><div class="pm pm-er"><span class="pm-icon">📈</span> 1,3409% ER</div></div>
+        <a href="https://www.instagram.com/p/DYRwaGmujio/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box">
+    <h4>📌 Leitura estratégica dos top 10</h4>
+    <p>
+<strong>1 dos 10 melhores posts</strong> têm collab/menção a creator — amplificação via influência segue como padrão dominante.
+<strong>6/10 são Reels</strong>, confirmando o vídeo curto como motor de alcance.
+<strong>Rock Lola</strong> é a marca mais representada no top 10 (2 posts), em parte pela combinação de creators de alto alcance e o gancho da Copa.
+<strong>CONCEITO MIKA não figura no top 10 absoluto desta semana</strong> — esperado, pois o score (likes×5 + coments×10) premia volume bruto, e a base segue muito menor que a média do grupo. No ranking de ER%, porém, MIKA segue na liderança.
+<br><br>
+<strong>Ação para CONCEITO MIKA:</strong> ativar collabs com creators de estética alinhada e prospectar parceria pontual com Drop 9 (18.05). Sem distribuição via creator, a assimetria de alcance vs concorrentes tende a aumentar.
+</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  CONCEITO MIKA · B2B Instagram Intelligence · Top 10 Posts · Janela 2026-05-11 a 2026-05-17 · Gerado em 18/05/2026 17:15
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  function processIG() {
+    if (window.instgrm && window.instgrm.Embeds) {
+      window.instgrm.Embeds.process();
+    }
+  }
+  document.addEventListener('DOMContentLoaded', processIG);
+  setTimeout(processIG, 1500);
+  setTimeout(() => {
+    document.querySelectorAll('.embed-loading').forEach(el => el.style.display = 'none');
+  }, 8000);
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.post-card').forEach(card => {
+        if (f === 'all') card.style.display = '';
+        else if (f === 'mika') card.style.display = card.dataset.mika ? '' : 'none';
+        else card.style.display = card.dataset.type === f ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

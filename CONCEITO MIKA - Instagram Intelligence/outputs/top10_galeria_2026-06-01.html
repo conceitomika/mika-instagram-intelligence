@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>🏅 Top 10 Melhores Posts — CONCEITO MIKA · Semana 25–31/mai 2026</title>
+<style>
+  :root {
+    --bg: #0d0d0f; --surface: #16161a; --surface2: #1e1e24; --surface3: #232330;
+    --border: #2a2a35; --border2: #35354a;
+    --accent: #c8a96e; --accent2: #7c6fcd; --accent3: #4ecdc4; --accent4: #e09a4a;
+    --text: #e8e8f0; --muted: #7a7a8c; --muted2: #5a5a6a;
+    --green: #52d48a; --red: #e05c5c;
+    --r: 12px; --rsm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  .header { background: linear-gradient(135deg, #13131a 0%, #1a1524 50%, #13131a 100%); border-bottom: 1px solid var(--border); padding: 28px 40px; }
+  .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .header-title h1 { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .header-title p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 13px; color: var(--muted); transition: all .2s; }
+  .back-link:hover { color: var(--text); border-color: var(--accent); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
+  .summary-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
+  .sum-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; position: relative; overflow: hidden; }
+  .sum-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); }
+  .sum-card.c2::before { background: var(--accent2); }
+  .sum-card.c3::before { background: var(--accent3); }
+  .sum-card.c4::before { background: var(--accent4); }
+  .sum-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .7px; font-weight: 600; }
+  .sum-val { font-size: 26px; font-weight: 800; color: var(--accent); margin: 6px 0 4px; line-height: 1; }
+  .sum-card.c2 .sum-val { color: var(--accent2); }
+  .sum-card.c3 .sum-val { color: var(--accent3); }
+  .sum-card.c4 .sum-val { color: var(--accent4); }
+  .sum-sub { font-size: 12px; color: var(--muted); }
+  .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+  .filter-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 7px 16px; font-size: 12px; color: var(--muted); cursor: pointer; transition: all .2s; font-weight: 600; }
+  .filter-btn:hover, .filter-btn.active { background: rgba(200,169,110,.12); border-color: rgba(200,169,110,.3); color: var(--accent); }
+  .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 24px; }
+  .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+  .post-card-mika { border-color: rgba(200,169,110,.35); box-shadow: 0 0 0 1px rgba(200,169,110,.15); }
+  .post-card-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface2); border-bottom: 1px solid var(--border); }
+  .medal { font-size: 22px; }
+  .post-meta { flex: 1; }
+  .post-brand { font-weight: 700; font-size: 14px; }
+  .post-date { font-size: 11px; color: var(--muted); }
+  .post-score { font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .post-score strong { color: var(--accent); }
+  .post-embed { padding: 0; background: #fff; min-height: 200px; }
+  .post-stats { display: flex; align-items: center; gap: 10px; padding: 12px 16px; flex-wrap: wrap; border-top: 1px solid var(--border); }
+  .stat-item { font-size: 12px; color: var(--muted); }
+  .collab-info { font-size: 11px; color: var(--accent3); width: 100%; }
+  .open-link { display: block; text-align: center; padding: 10px; background: var(--surface2); border-top: 1px solid var(--border); font-size: 12px; color: var(--accent); font-weight: 600; transition: background .2s; }
+  .open-link:hover { background: var(--surface3); }
+  .mika-badge { background: var(--accent); color: #0d0d0f; border-radius: 3px; padding: 1px 7px; font-size: 9px; font-weight: 800; margin-left: 5px; }
+  .pill { display: inline-block; font-size: 10px; padding: 3px 10px; border-radius: 4px; font-weight: 600; text-transform: uppercase; }
+  .pill-reels     { background: rgba(124,111,205,.15); color: #a89aff; }
+  .pill-carrossel { background: rgba(78,205,196,.12); color: var(--accent3); }
+  .pill-single    { background: rgba(224,154,74,.12); color: var(--accent4); }
+  .insight { padding: 16px 20px; background: rgba(200,169,110,.04); border: 1px solid rgba(200,169,110,.18); border-radius: var(--rsm); margin-top: 32px; }
+  .insight h4 { font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .insight li { font-size: 12.5px; color: var(--muted); line-height: 1.75; margin-bottom: 4px; padding-left: 0; }
+  .insight ul { padding-left: 20px; }
+  .insight strong { color: var(--text); }
+  .footer { border-top: 1px solid var(--border); padding: 20px 40px; text-align: center; font-size: 11px; color: var(--muted2); margin-top: 40px; }
+  @media (max-width: 900px) { .summary-row { grid-template-columns: repeat(2,1fr); } .posts-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .header, .container { padding-left: 16px; padding-right: 16px; } .summary-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-title">
+      <h1>🏅 Top 10 Melhores Posts da Semana</h1>
+      <p>CONCEITO MIKA · Semana 25–31/mai 2026 · Score: likes × 5 + comentários × 10</p>
+    </div>
+    <a class="back-link" href="dashboard_2026-06-01.html">← Voltar ao Dashboard</a>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="summary-row">
+  <div class="sum-card">
+    <div class="sum-label">🥇 Maior score</div>
+    <div class="sum-val">13,265</div>
+    <div class="sum-sub">@lancaperfume · 2,341 likes · 156 coments.</div>
+  </div>
+  <div class="sum-card c2">
+    <div class="sum-label">🎬 Reels no top 10</div>
+    <div class="sum-val">8</div>
+    <div class="sum-sub">8/10 posts são Reels</div>
+  </div>
+  <div class="sum-card c3">
+    <div class="sum-label">🤝 Posts com collab</div>
+    <div class="sum-val">10</div>
+    <div class="sum-sub">10/10 posts têm menção externa</div>
+  </div>
+  <div class="sum-card c4">
+    <div class="sum-label">🏆 Marca mais representada</div>
+    <div class="sum-val">@lancaperfume</div>
+    <div class="sum-sub">9 posts no top 10</div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterPosts('all')">Todos (10)</button>
+  <button class="filter-btn" onclick="filterPosts('Reels')">Reels (8)</button>
+  <button class="filter-btn" onclick="filterPosts('Carrossel')">Carrossel (2)</button>
+  <button class="filter-btn" onclick="filterPosts('Single')">Single (0)</button>
+  <button class="filter-btn" onclick="filterPosts('mika')">Só CONCEITO MIKA</button>
+</div>
+
+<div class="posts-grid" id="posts-grid">
+
+<div class="post-card " data-type="Reels" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">🥇</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-31</div>
+    </div>
+    <div class="post-score">Score: <strong>13,265</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZBLK75PwlP/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-reels">Reels</span>
+    <span class="stat-item">❤️ 2,341</span>
+    <span class="stat-item">💬 156</span>
+    <span class="stat-item">ER 0.1130%</span>
+    <div class="collab-info">🤝 lancaperfume</div>
+  </div>
+  <a href="https://www.instagram.com/p/DZBLK75PwlP/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Reels" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">🥈</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-31</div>
+    </div>
+    <div class="post-score">Score: <strong>10,360</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZBJVLYMLnB/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-reels">Reels</span>
+    <span class="stat-item">❤️ 1,876</span>
+    <span class="stat-item">💬 98</span>
+    <span class="stat-item">ER 0.0890%</span>
+    <div class="collab-info">🤝 lancaperfume</div>
+  </div>
+  <a href="https://www.instagram.com/p/DZBJVLYMLnB/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Reels" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">🥉</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-27</div>
+    </div>
+    <div class="post-score">Score: <strong>8,520</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY2xpztvsS4/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-reels">Reels</span>
+    <span class="stat-item">❤️ 1,592</span>
+    <span class="stat-item">💬 56</span>
+    <span class="stat-item">ER 0.0750%</span>
+    <div class="collab-info">🤝 lancaperfume</div>
+  </div>
+  <a href="https://www.instagram.com/p/DY2xpztvsS4/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Reels" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">4️⃣</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-28</div>
+    </div>
+    <div class="post-score">Score: <strong>8,065</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY4vfBjxg7J/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-reels">Reels</span>
+    <span class="stat-item">❤️ 1,445</span>
+    <span class="stat-item">💬 84</span>
+    <span class="stat-item">ER 0.0690%</span>
+    <div class="collab-info">🤝 lancaperfume</div>
+  </div>
+  <a href="https://www.instagram.com/p/DY4vfBjxg7J/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Reels" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">5️⃣</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-26</div>
+    </div>
+    <div class="post-score">Score: <strong>6,950</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYzmr3HxVEl/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-reels">Reels</span>
+    <span class="stat-item">❤️ 1,234</span>
+    <span class="stat-item">💬 78</span>
+    <span class="stat-item">ER 0.0600%</span>
+    <div class="collab-info">🤝 lancaperfume</div>
+  </div>
+  <a href="https://www.instagram.com/p/DYzmr3HxVEl/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Carrossel" data-brand="karmanioficial">
+  <div class="post-card-header">
+    <div class="medal">6️⃣</div>
+    <div class="post-meta">
+      <div class="post-brand">@karmanioficial</div>
+      <div class="post-date">2026-05-29</div>
+    </div>
+    <div class="post-score">Score: <strong>6,300</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY7UwjjEbVR/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-carrossel">Carrossel</span>
+    <span class="stat-item">❤️ 1,192</span>
+    <span class="stat-item">💬 34</span>
+    <span class="stat-item">ER 0.2500%</span>
+    <div class="collab-info">🤝 karmanioficial</div>
+  </div>
+  <a href="https://www.instagram.com/p/DY7UwjjEbVR/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Reels" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">7️⃣</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-29</div>
+    </div>
+    <div class="post-score">Score: <strong>6,180</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY7R9jMh6zO/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-reels">Reels</span>
+    <span class="stat-item">❤️ 1,068</span>
+    <span class="stat-item">💬 84</span>
+    <span class="stat-item">ER 0.0520%</span>
+    <div class="collab-info">🤝 lancaperfume</div>
+  </div>
+  <a href="https://www.instagram.com/p/DY7R9jMh6zO/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Reels" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">8️⃣</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-28</div>
+    </div>
+    <div class="post-score">Score: <strong>5,985</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY5kJuKBb7Z/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-reels">Reels</span>
+    <span class="stat-item">❤️ 999</span>
+    <span class="stat-item">💬 99</span>
+    <span class="stat-item">ER 0.0500%</span>
+    <div class="collab-info">🤝 lancaperfume</div>
+  </div>
+  <a href="https://www.instagram.com/p/DY5kJuKBb7Z/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Carrossel" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">9️⃣</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-25</div>
+    </div>
+    <div class="post-score">Score: <strong>5,345</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYvFaISJ5i2/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-carrossel">Carrossel</span>
+    <span class="stat-item">❤️ 965</span>
+    <span class="stat-item">💬 52</span>
+    <span class="stat-item">ER 0.0460%</span>
+    <div class="collab-info">🤝 mfernandaa</div>
+  </div>
+  <a href="https://www.instagram.com/p/DYvFaISJ5i2/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="Reels" data-brand="lancaperfume">
+  <div class="post-card-header">
+    <div class="medal">🔟</div>
+    <div class="post-meta">
+      <div class="post-brand">@lancaperfume</div>
+      <div class="post-date">2026-05-27</div>
+    </div>
+    <div class="post-score">Score: <strong>4,830</strong></div>
+  </div>
+  <div class="post-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DY2L-E4RI6f/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:100%;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    </blockquote>
+  </div>
+  <div class="post-stats">
+    <span class="pill pill-reels">Reels</span>
+    <span class="stat-item">❤️ 876</span>
+    <span class="stat-item">💬 45</span>
+    <span class="stat-item">ER 0.0420%</span>
+    <div class="collab-info">🤝 lancaperfume</div>
+  </div>
+  <a href="https://www.instagram.com/p/DY2L-E4RI6f/" target="_blank" class="open-link">Abrir no Instagram ↗</a>
+</div>
+</div>
+
+<div class="insight">
+  <h4>💡 Leitura estratégica do Top 10</h4>
+  <ul>
+    <li><strong>@lancaperfume</strong> domina o Top 10 por score absoluto — base 2,2M amplifica tudo. Para MIKA, o benchmarking relevante é via ER, não score bruto.</li>
+    <li><strong>@karmanioficial</strong> (score 6.300) é o destaque da semana: Carrossel viral com 1.192 likes — o único post não-lancaperfume com performance excepcional. Vale estudar o conteúdo.</li>
+    <li>Todos os posts de @lancaperfume no top 10 são <strong>Reels</strong> com creators — confirma que a estratégia de UGC/GRWM é o motor de performance da marca.</li>
+    <li><strong>CONCEITO MIKA</strong> não aparece no top 10 por score esta semana (posts de SALE com baixo engajamento absoluto). Na semana seguinte, com conteúdo editorial, a posição deve se recuperar.</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="footer">
+  CONCEITO MIKA · B2B Instagram Intelligence · Top 10 Semana 25–31/mai 2026 · Gerado em 01/06/2026
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+function filterPosts(type) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.post-card').forEach(card => {
+    if (type === 'all') {
+      card.style.display = '';
+    } else if (type === 'mika') {
+      card.style.display = card.dataset.brand === 'conceitomika' ? '' : 'none';
+    } else {
+      card.style.display = card.dataset.type === type ? '' : 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>

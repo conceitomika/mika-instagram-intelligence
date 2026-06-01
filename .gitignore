@@ -1,0 +1,16 @@
+# Dados brutos e processados (não publicar)
+CONCEITO MIKA - Instagram Intelligence/raw_data/
+CONCEITO MIKA - Instagram Intelligence/processed/
+
+# Arquivos temporários
+*.tmp
+*.log
+_tmp_*
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Excel local
+*.xlsx
