@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>🏅 Top 10 Posts — CONCEITO MIKA Intelligence · 2026-07-14 a 2026-07-20</title>
+<style>
+  :root {
+    --bg: #0d0d0f; --surface: #16161a; --surface2: #1e1e24; --surface3: #232330;
+    --border: #2a2a35; --border2: #35354a;
+    --accent: #c8a96e; --accent2: #7c6fcd; --accent3: #4ecdc4; --accent4: #e09a4a;
+    --text: #e8e8f0; --muted: #7a7a8c; --muted2: #5a5a6a;
+    --green: #52d48a; --red: #e05c5c;
+    --r: 12px; --rsm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--text); }
+  .header { background: linear-gradient(135deg, #13131a 0%, #1a1524 50%, #13131a 100%); border-bottom: 1px solid var(--border); padding: 28px 40px; }
+  .header-inner { max-width: 1200px; margin: 0 auto; }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .header-title h1 { font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: -.3px; }
+  .header-title p { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); padding: 6px 14px; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; transition: all .2s; }
+  .back-link:hover { color: var(--accent); border-color: rgba(200,169,110,.4); }
+  .score-formula { margin-top: 12px; font-size: 11px; color: var(--muted2); }
+  .score-formula span { color: var(--accent); }
+  .summary-row { max-width: 1200px; margin: 24px auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 0 40px; }
+  .sum-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--rsm); padding: 16px 18px; position: relative; overflow: hidden; }
+  .sum-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+  .sum-card.c1::before { background: var(--accent); }
+  .sum-card.c2::before { background: var(--accent2); }
+  .sum-card.c3::before { background: var(--accent3); }
+  .sum-card.c4::before { background: var(--accent4); }
+  .sum-val { font-size: 26px; font-weight: 800; color: var(--accent); }
+  .sum-card.c2 .sum-val { color: var(--accent2); }
+  .sum-card.c3 .sum-val { color: var(--accent3); }
+  .sum-card.c4 .sum-val { color: var(--accent4); }
+  .sum-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .7px; margin-top: 4px; font-weight: 600; }
+  .filter-bar { max-width: 1200px; margin: 0 auto 24px; padding: 0 40px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface2); color: var(--muted); font-size: 12px; font-weight: 600; cursor: pointer; transition: all .2s; }
+  .filter-btn.active, .filter-btn:hover { background: rgba(200,169,110,.12); border-color: rgba(200,169,110,.35); color: var(--accent); }
+  .grid { max-width: 1200px; margin: 0 auto; padding: 0 40px 60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 20px; }
+  .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: border-color .2s; }
+  .post-card:hover { border-color: var(--border2); }
+  .post-card.mika-card { border-color: rgba(200,169,110,.3); background: rgba(200,169,110,.03); }
+  .card-header { display: flex; align-items: flex-start; gap: 12px; padding: 16px 18px 12px; border-bottom: 1px solid var(--border); }
+  .medal { font-size: 26px; line-height: 1; flex-shrink: 0; }
+  .card-meta { flex: 1; }
+  .card-handle { font-weight: 700; font-size: 14px; color: var(--text); }
+  .card-date { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .card-score { font-size: 11px; color: var(--muted2); white-space: nowrap; }
+  .card-score strong { color: var(--accent4); font-size: 14px; }
+  .card-pills { display: flex; gap: 6px; padding: 10px 18px; flex-wrap: wrap; }
+  .pill { display: inline-block; font-size: 10px; padding: 3px 10px; border-radius: 4px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+  .pill-reels     { background: rgba(124,111,205,.15); color: #a89aff; }
+  .pill-carrossel { background: rgba(78,205,196,.12); color: var(--accent3); }
+  .pill-single    { background: rgba(224,154,74,.12); color: var(--accent4); }
+  .pill-collab    { background: rgba(82,212,138,.1); color: var(--green); }
+  .mika-badge { background: var(--accent); color: #0d0d0f; border-radius: 3px; padding: 1px 7px; font-size: 9px; font-weight: 800; margin-left: 6px; letter-spacing: .6px; }
+  .card-collab { padding: 4px 18px 8px; font-size: 11px; color: var(--green); }
+  .card-embed { padding: 12px 18px; min-height: 80px; }
+  .no-embed { padding: 20px; text-align: center; background: var(--surface2); border-radius: 8px; font-size: 12px; color: var(--muted); }
+  .card-stats { display: flex; gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stat-item { flex: 1; padding: 10px 14px; text-align: center; font-size: 12px; color: var(--muted); border-right: 1px solid var(--border); }
+  .stat-item:last-child { border-right: 0; }
+  .stat-item strong { color: var(--text); display: block; font-size: 16px; }
+  .stat-icon { font-size: 14px; }
+  .card-link { display: block; padding: 10px 18px; font-size: 12px; color: var(--accent3); text-align: right; }
+  .card-link:hover { color: var(--text); }
+  .insight-box { max-width: 1200px; margin: 0 auto 40px; padding: 0 40px; }
+  .insight { padding: 20px 24px; background: rgba(200,169,110,.04); border: 1px solid rgba(200,169,110,.18); border-radius: var(--rsm); }
+  .insight h4 { font-size: 13px; color: var(--accent); font-weight: 700; margin-bottom: 12px; }
+  .insight li { font-size: 12.5px; color: var(--muted); line-height: 1.75; margin-bottom: 4px; }
+  .insight strong { color: var(--text); }
+  .insight ul { padding-left: 20px; }
+  .footer { border-top: 1px solid var(--border); padding: 20px 40px; text-align: center; font-size: 11px; color: var(--muted2); }
+  @media (max-width: 720px) {
+    .header { padding: 20px 16px; }
+    .summary-row { grid-template-columns: repeat(2, 1fr); padding: 0 16px; }
+    .grid { grid-template-columns: 1fr; padding: 0 16px 40px; }
+    .filter-bar { padding: 0 16px; }
+    .insight-box { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-title">
+        <h1>🏅 Top 10 Melhores Posts da Semana</h1>
+        <p>CONCEITO MIKA · Instagram Intelligence · 2026-07-14 a 2026-07-20</p>
+      </div>
+      <a class="back-link" href="dashboard_2026-07-20.html">← Voltar ao dashboard</a>
+    </div>
+    <div class="score-formula">Score = <span>likes × 5 + comentários × 10</span> — prioriza conteúdo com alto engajamento em comentários</div>
+  </div>
+</div>
+
+<div class="summary-row">
+  <div class="sum-card c1"><div class="sum-val">2,245</div><div class="sum-label">Maior score absoluto</div></div>
+  <div class="sum-card c2"><div class="sum-val">6</div><div class="sum-label">Reels nos top 10</div></div>
+  <div class="sum-card c3"><div class="sum-val">4</div><div class="sum-label">Posts com collab</div></div>
+  <div class="sum-card c4"><div class="sum-val">@lachocole.official</div><div class="sum-label">Marca mais representada</div></div>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterCards('all')">Todos</button>
+  <button class="filter-btn" onclick="filterCards('reels')">Reels</button>
+  <button class="filter-btn" onclick="filterCards('carrossel')">Carrossel</button>
+  <button class="filter-btn" onclick="filterCards('single')">Single</button>
+  <button class="filter-btn" onclick="filterCards('conceitomika')">Só CONCEITO MIKA</button>
+</div>
+
+<div class="grid" id="post-grid">
+<div class="post-card " data-type="reels">
+  <div class="card-header">
+    <span class="medal">🥇</span>
+    <div class="card-meta">
+      <div class="card-handle">@lachocole.official</div>
+      <div class="card-date">Sábado · 18/07/2026 11:23</div>
+    </div>
+    <div class="card-score">Score: <strong>2,245</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-reels">Reels</span>
+    <span class="pill pill-collab">🤝 Collab</span>
+  </div>
+  <div class="card-collab">🤝 Collab: @julia.jabour</div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Da7_oUxR4g0/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>385</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>32</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.1022%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/Da7_oUxR4g0/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="carrossel">
+  <div class="card-header">
+    <span class="medal">🥈</span>
+    <div class="card-meta">
+      <div class="card-handle">@lachocole.official</div>
+      <div class="card-date">Quinta · 16/07/2026 18:13</div>
+    </div>
+    <div class="card-score">Score: <strong>1,635</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Da3lHNzFcGs/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>275</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>26</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.0737%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/Da3lHNzFcGs/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="carrossel">
+  <div class="card-header">
+    <span class="medal">🥉</span>
+    <div class="card-meta">
+      <div class="card-handle">@lancaperfume</div>
+      <div class="card-date">Segunda · 13/07/2026 11:00</div>
+    </div>
+    <div class="card-score">Score: <strong>1,210</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DavFO5pkZMM/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>216</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>13</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.0103%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/DavFO5pkZMM/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="reels">
+  <div class="card-header">
+    <span class="medal">4️⃣</span>
+    <div class="card-meta">
+      <div class="card-handle">@closetdeluxeoficial</div>
+      <div class="card-date">Quarta · 15/07/2026 20:52</div>
+    </div>
+    <div class="card-score">Score: <strong>1,160</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-reels">Reels</span>
+    <span class="pill pill-collab">🤝 Collab</span>
+  </div>
+  <div class="card-collab">🤝 Collab: @luizaperotee</div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Da1SZY-AT1h/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>196</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>18</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.0257%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/Da1SZY-AT1h/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="reels">
+  <div class="card-header">
+    <span class="medal">5️⃣</span>
+    <div class="card-meta">
+      <div class="card-handle">@lachocole.official</div>
+      <div class="card-date">Terça · 14/07/2026 19:24</div>
+    </div>
+    <div class="card-score">Score: <strong>1,140</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-reels">Reels</span>
+    
+  </div>
+  
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DayjbiCRAU9/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>154</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>37</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.0468%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/DayjbiCRAU9/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="carrossel">
+  <div class="card-header">
+    <span class="medal">6️⃣</span>
+    <div class="card-meta">
+      <div class="card-handle">@lachocole.official</div>
+      <div class="card-date">Quarta · 15/07/2026 14:05</div>
+    </div>
+    <div class="card-score">Score: <strong>1,115</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Da0j6aXESW7/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>183</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>20</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.0497%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/Da0j6aXESW7/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="reels">
+  <div class="card-header">
+    <span class="medal">7️⃣</span>
+    <div class="card-meta">
+      <div class="card-handle">@cordoce</div>
+      <div class="card-date">Domingo · 19/07/2026 12:10</div>
+    </div>
+    <div class="card-score">Score: <strong>1,105</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-reels">Reels</span>
+    <span class="pill pill-collab">🤝 Collab</span>
+  </div>
+  <div class="card-collab">🤝 Collab: @reisrodriguess</div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Da-ppDWON5z/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>159</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>31</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.1069%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/Da-ppDWON5z/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="carrossel">
+  <div class="card-header">
+    <span class="medal">8️⃣</span>
+    <div class="card-meta">
+      <div class="card-handle">@lancaperfume</div>
+      <div class="card-date">Terça · 14/07/2026 11:00</div>
+    </div>
+    <div class="card-score">Score: <strong>1,060</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Daxp9znkQ0c/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>176</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>18</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.0088%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/Daxp9znkQ0c/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="reels">
+  <div class="card-header">
+    <span class="medal">9️⃣</span>
+    <div class="card-meta">
+      <div class="card-handle">@kaelecollection</div>
+      <div class="card-date">Segunda · 13/07/2026 18:48</div>
+    </div>
+    <div class="card-score">Score: <strong>1,050</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-reels">Reels</span>
+    
+  </div>
+  
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dav6liux4ZD/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>170</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>20</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>9.5000%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/Dav6liux4ZD/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card " data-type="reels">
+  <div class="card-header">
+    <span class="medal">🔟</span>
+    <div class="card-meta">
+      <div class="card-handle">@esmeral_oficial</div>
+      <div class="card-date">Terça · 14/07/2026 12:00</div>
+    </div>
+    <div class="card-score">Score: <strong>1,040</strong></div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-reels">Reels</span>
+    <span class="pill pill-collab">🤝 Collab</span>
+  </div>
+  <div class="card-collab">🤝 Collab: @carolribeiro______</div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaxyinGxZav/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span><strong>142</strong> likes</div>
+    <div class="stat-item"><span class="stat-icon">💬</span><strong>33</strong> coments.</div>
+    <div class="stat-item"><span class="stat-icon">📊</span><strong>0.0504%</strong> ER</div>
+  </div>
+  <a class="card-link" href="https://www.instagram.com/p/DaxyinGxZav/" target="_blank">Abrir no Instagram ↗</a>
+</div>
+</div>
+
+<div class="insight-box">
+  <div class="insight">
+    <h4>💡 Leitura estratégica — top 10 da semana</h4>
+    <ul>
+      <li><strong>@lachocole.official domina</strong> o top 10 com 4 dos 10 melhores posts — combinação de Reels emocionais + Carrossel editorial. Score máximo 2.245 (Reels · Sábado 11h23).</li>
+      <li><strong>Reels sobem em força relativa</strong>: 5 dos 10 são vídeos. O post #1 é Reels. Sinal claro de que o algoritmo favorece vídeo nesta semana.</li>
+      <li><strong>@cordoce</strong> aparece em #7 com Reels domingo — 159 likes e 31 comentários, ER 0,1069% (entre os mais altos com followers confirmados).</li>
+      <li><strong>@conceitomika não aparece</strong> no top 10 absoluto — reflexo do volume ainda limitado de seguidores (9K). Em ER relativo, a marca segue competitiva.</li>
+      <li><strong>Oportunidade:</strong> conteúdos com collab (presente em 4 posts do top 10) tendem a ter maior reach. Considerar 1 collab estratégica por semana para amplificação.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  CONCEITO MIKA · B2B Instagram Intelligence · Gerado em 20/07/2026 11:12
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+function filterCards(type) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.post-card').forEach(card => {
+    if (type === 'all') {
+      card.style.display = '';
+    } else if (type === 'conceitomika') {
+      card.style.display = card.querySelector('.card-handle').textContent.includes('conceitomika') ? '' : 'none';
+    } else {
+      card.style.display = card.dataset.type === type ? '' : 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
