@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>📈 Instagram Intelligence — CONCEITO MIKA · 2026-07-21 a 2026-07-27</title>
+<style>
+  :root {
+    --bg: #0d0d0f; --surface: #16161a; --surface2: #1e1e24; --surface3: #232330;
+    --border: #2a2a35; --border2: #35354a;
+    --accent: #c8a96e; --accent2: #7c6fcd; --accent3: #4ecdc4; --accent4: #e09a4a;
+    --text: #e8e8f0; --muted: #7a7a8c; --muted2: #5a5a6a;
+    --green: #52d48a; --red: #e05c5c; --yellow: #f0c060;
+    --r: 12px; --rsm: 8px; --rxs: 5px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--text); }
+
+  .header { background: linear-gradient(135deg, #13131a 0%, #1a1524 50%, #13131a 100%); border-bottom: 1px solid var(--border); padding: 28px 40px; }
+  .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .header-title h1 { font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: -.3px; }
+  .header-title p { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  .header-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .pill-hdr { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; font-size: 12px; color: var(--muted); }
+  .pill-hdr span { color: var(--accent); font-weight: 600; }
+  .pill-hdr.note { border-color: rgba(200,169,110,.25); color: var(--muted2); font-size: 11px; max-width: 420px; text-align: right; }
+
+  .week-nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 40px; position: sticky; top: 0; z-index: 50; }
+  .week-nav-inner { max-width: 1400px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; }
+  .week-tab { padding: 14px 24px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all .2s; white-space: nowrap; text-decoration: none; display: inline-block; }
+  .week-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .week-tab:not(.disabled):hover { color: var(--text); }
+  .week-tab.disabled { opacity: .35; cursor: default; }
+  .week-tab .tag { background: var(--surface3); border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 600; margin-left: 6px; }
+  .week-tab.active .tag { background: rgba(200,169,110,.15); color: var(--accent); }
+  a.week-tab { color: var(--muted); }
+  a.week-tab:hover { color: var(--text); border-bottom-color: rgba(200,169,110,.4); }
+
+  .container { max-width: 1400px; margin: 0 auto; padding: 32px 40px; }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1.4px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .mb { margin-bottom: 36px; }
+
+  .meta-strip { display: flex; gap: 28px; flex-wrap: wrap; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); margin-bottom: 28px; }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .meta-val { font-size: 14px; color: var(--text); font-weight: 500; }
+
+  .sum-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .sum-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; position: relative; overflow: hidden; }
+  .sum-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); }
+  .sum-card.tone-gold::before   { background: var(--accent); }
+  .sum-card.tone-orange::before { background: var(--accent4); }
+  .sum-card.tone-green::before  { background: var(--green); }
+  .sum-card.tone-red::before    { background: var(--red); }
+  .sum-card.tone-violet::before { background: var(--accent2); }
+  .sum-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .7px; font-weight: 600; }
+  .sum-val { font-size: 24px; font-weight: 800; color: var(--accent); margin: 6px 0 4px; line-height: 1.1; letter-spacing: -.5px; }
+  .sum-card.tone-orange .sum-val { color: var(--accent4); }
+  .sum-card.tone-green .sum-val  { color: var(--green); }
+  .sum-card.tone-red .sum-val    { color: var(--red); }
+  .sum-card.tone-violet .sum-val { color: var(--accent2); }
+  .sum-sub { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .sum-badge { margin-top: 10px; }
+  .chip { display: inline-block; background: var(--surface3); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 10px; color: var(--muted); font-weight: 600; letter-spacing: .4px; }
+  .chip-gold { background: rgba(200,169,110,.12); border-color: rgba(200,169,110,.3); color: var(--accent); }
+  .chip-red  { background: rgba(224,92,92,.1); border-color: rgba(224,92,92,.25); color: var(--red); }
+
+  .section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+  .section-title { font-size: 15px; font-weight: 700; padding: 18px 24px; margin: 0; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, #1a1a22 0%, #16161a 100%); color: var(--text); }
+  .section-body { padding: 24px; }
+
+  .tbl-wrap { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--rsm); overflow: hidden; overflow-x: auto; }
+  .tbl { width: 100%; border-collapse: collapse; }
+  .tbl th, .tbl td { padding: 11px 14px; text-align: left; border-bottom: 1px solid rgba(42,42,53,.6); vertical-align: middle; white-space: nowrap; }
+  .tbl th { font-size: 11px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .8px; background: var(--surface3); border-bottom-color: var(--border); }
+  .tbl tbody tr:last-child td { border-bottom: 0; }
+  .tbl tbody tr:hover td { background: rgba(200,169,110,.025); }
+  .tbl td.right, .tbl th.right { text-align: right; }
+  .tbl td.center, .tbl th.center { text-align: center; }
+  .tbl .num { font-variant-numeric: tabular-nums; font-size: 13px; }
+  .muted { color: var(--muted2); }
+
+  .mika-row td { background: rgba(200,169,110,.035); border-bottom-color: rgba(200,169,110,.08); }
+  .mika-row:hover td { background: rgba(200,169,110,.07) !important; }
+  .mika-badge { background: var(--accent); color: #0d0d0f; border-radius: 3px; padding: 1px 7px; font-size: 9px; font-weight: 800; margin-left: 5px; letter-spacing: .6px; display: inline-block; }
+  .row-empty { opacity: .55; }
+
+  .wow { font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 5px; display: inline-block; white-space: nowrap; }
+  .wow-up { background: rgba(82,212,138,.1); color: var(--green); }
+  .wow-down { background: rgba(224,92,92,.1); color: var(--red); }
+  .wow-flat { background: rgba(122,122,140,.1); color: var(--muted); }
+  .wow-na { color: var(--muted2); font-size: 11px; font-weight: 400; font-style: italic; }
+
+  .pill { display: inline-block; font-size: 10px; padding: 3px 10px; border-radius: 4px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+  .pill-sm { font-size: 9px; padding: 2px 7px; }
+  .pill-reels     { background: rgba(124,111,205,.15); color: #a89aff; }
+  .pill-carrossel { background: rgba(78,205,196,.12); color: var(--accent3); }
+  .pill-single    { background: rgba(224,154,74,.12); color: var(--accent4); }
+  .pill-tier      { background: var(--surface3); color: var(--muted); font-style: italic; text-transform: none; font-weight: 500; }
+
+  .insight { margin-top: 22px; padding: 16px 20px; background: rgba(200,169,110,.04); border: 1px solid rgba(200,169,110,.18); border-radius: var(--rsm); }
+  .insight h4 { font-size: 12px; color: var(--accent); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .insight p, .insight li { font-size: 12.5px; color: var(--muted); line-height: 1.75; }
+  .insight strong { color: var(--text); }
+  .insight ul, .insight ol { padding-left: 20px; }
+  .insight li { margin-bottom: 4px; }
+
+  .day-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .day-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--rsm); padding: 16px 18px; }
+  .day-card-title { font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); color: var(--accent); }
+  .day-list { list-style: none; counter-reset: item; padding: 0; margin: 0; }
+  .day-list li { counter-increment: item; padding: 10px 0 10px 26px; position: relative; border-bottom: 1px dashed rgba(42,42,53,.6); font-size: 12px; }
+  .day-list li:last-child { border-bottom: 0; }
+  .day-list li::before { content: counter(item); position: absolute; left: 0; top: 10px; color: var(--muted); font-weight: 700; font-size: 11px; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; background: var(--surface3); border-radius: 50%; }
+  .day-list li.li-mika { background: rgba(200,169,110,.06); margin: 0 -18px; padding-left: 44px; padding-right: 18px; border-left: 2px solid var(--accent); }
+  .day-list li.li-mika::before { left: 18px; color: #0d0d0f; background: var(--accent); }
+  .handle-sm { font-weight: 600; font-size: 12px; color: var(--text); }
+  .li-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; gap: 8px; }
+  .li-bottom { color: var(--muted); font-size: 11px; }
+  .lnk-sm { font-size: 11px; color: var(--accent); }
+  .lnk { color: var(--accent3); font-size: 12px; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .stat { padding: 18px 22px; background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--rsm); }
+  .stat-num { font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1.1; letter-spacing: -.5px; }
+  .stat-lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .7px; margin-top: 4px; font-weight: 600; }
+
+  .footer { border-top: 1px solid var(--border); padding: 20px 40px; text-align: center; font-size: 11px; color: var(--muted2); letter-spacing: .04em; }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted2); }
+
+  @media (max-width: 1000px) { .sum-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) {
+    .header, .week-nav { padding-left: 16px; padding-right: 16px; }
+    .container { padding: 20px 16px 60px; }
+    .sum-grid { grid-template-columns: 1fr; }
+    .meta-strip { gap: 16px; }
+    .tbl th, .tbl td { padding: 8px 10px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-title">
+      <h1>📈 Instagram Intelligence Dashboard</h1>
+      <p>CONCEITO MIKA · análise competitiva semanal · 15 contas monitoradas</p>
+    </div>
+    <div class="header-meta">
+      <div class="pill-hdr">Última atualização: <span>27/07/2026 08:19</span></div>
+      <div class="pill-hdr">Marcas monitoradas: <span>15</span> · Semanas coletadas: <span>13</span></div>
+      <div class="pill-hdr note">Comparativo WoW vs. semana 14–20/jul. MoM disponível quando ≥4 semanas completas de mês.</div>
+    </div>
+  </div>
+</div>
+
+<div class="week-nav">
+  <div class="week-nav-inner">
+    <a class="week-tab" href="dashboard_2026-04-19.html" title="Semana 04-13 → 04-19">Semana 04-13 → 04-19 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-04-27.html" title="Semana 04-20 → 04-26">Semana 04-20 → 04-26 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-05-05.html" title="Semana 04-28 → 05-04">Semana 04-28 → 05-04 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-05-14.html" title="Semana 05-11 → 05-14">Semana 05-11 → 05-14 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-05-18.html" title="Semana 05-18 → 05-18">Semana 05-18 → 05-18 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-05-25.html" title="Semana 05-19 → 05-25">Semana 05-19 → 05-25 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-06-01.html" title="Semana 05-26 → 06-01">Semana 05-26 → 06-01 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-06-08.html" title="Semana 06-02 → 06-08">Semana 06-02 → 06-08 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-06-15.html" title="Semana 06-09 → 06-15">Semana 06-09 → 06-15 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-06-29.html" title="Semana 06-23 → 06-29">Semana 06-23 → 06-29 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-07-13.html" title="Semana 07-07 → 07-13">Semana 07-07 → 07-13 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-07-20.html" title="Semana 07-14 → 07-20">Semana 07-14 → 07-20 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-08-10.html">Sem 08-03→08-09 <span class="tag">Próxima</span></a>
+    <div class="week-tab active">Semana 07-21 → 07-27 <span class="tag">Atual</span></div>
+    <a class="week-tab" href="dashboard_2026-08-03.html" title="Semana 07-28 → 08-03">Semana 07-28 → 08-03 <span class="tag">Histórica</span></a>
+    <a class="week-tab" href="dashboard_2026-08-24.html" title="Semana 24/08">24/08<span class="tag">Próxima</span></a>
+<div class="week-tab disabled">MoM <span class="tag">Disponível em breve</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="meta-strip">
+    <div class="meta-item"><span class="meta-lbl">Janela</span><span class="meta-val">2026-07-21 a 2026-07-27</span></div>
+    <div class="meta-item"><span class="meta-lbl">Contas analisadas</span><span class="meta-val">15</span></div>
+    <div class="meta-item"><span class="meta-lbl">Posts analisados</span><span class="meta-val">90</span></div>
+    <div class="meta-item"><span class="meta-lbl">Fuso</span><span class="meta-val">BRT (UTC-3)</span></div>
+    <div class="meta-item"><span class="meta-lbl">Fórmula ER</span><span class="meta-val">(likes + comentários) / followers × 100</span></div>
+</div>
+
+<div class="section-label">✨ Resumo da semana — destaques do grupo estratégico</div>
+<div class="sum-grid mb">
+  <div class="sum-card tone-gold">
+    <div class="sum-label">🏆 Maior ER médio</div>
+    <div class="sum-val">USEGULE_</div>
+    <div class="sum-sub">@usegule_ · 2.931% · 8 posts</div>
+    <div class="sum-badge"><span class="chip chip-gold">+1.131pp WoW</span></div>
+  </div>
+  <div class="sum-card tone-orange">
+    <div class="sum-label">🔥 Mais engajamento bruto</div>
+    <div class="sum-val">LANCAPERFUME</div>
+    <div class="sum-sub">@lancaperfume · 4,981 likes+coment. totais na semana</div>
+    <div class="sum-badge"><span class="chip">Semana 13</span></div>
+  </div>
+  <div class="sum-card tone-green">
+    <div class="sum-label">📊 Maior aumento posts</div>
+    <div class="sum-val">N/A</div>
+    <div class="sum-sub">Dados insuficientes</div>
+    <div class="sum-badge"><span class="chip">WoW</span></div>
+  </div>
+  <div class="sum-card tone-red">
+    <div class="sum-label">⬇️ Maior queda posts</div>
+    <div class="sum-val">N/A</div>
+    <div class="sum-sub">Dados insuficientes</div>
+    <div class="sum-badge"><span class="chip">WoW</span></div>
+  </div>
+  <div class="sum-card tone-violet">
+    <div class="sum-label">🤝 Mais collabs</div>
+    <div class="sum-val">CLOSETDELUXE</div>
+    <div class="sum-sub">@closetdeluxeoficial · 12 menções externas</div>
+    <div class="sum-badge"><span class="chip">Semana 13</span></div>
+  </div>
+</div>
+
+<section class="section mb">
+  <h2 class="section-title">📊 1. Visão geral da semana</h2>
+  <div class="section-body">
+    <div class="tbl-wrap"><table class="tbl"><thead><tr>
+      <th>Conta</th>
+      <th class="right">Seguidores</th>
+      <th class="center">Posts</th>
+      <th class="right">Likes médios</th>
+      <th class="right">Coment. médios</th>
+      <th class="right">Engagement Rate</th>
+      <th class="center">WoW (pp)</th>
+    </tr></thead><tbody>
+    <tr class="">
+            <td>@usegule_</td>
+            <td class="right num">2.0k</td>
+            <td class="center num">8</td>
+            <td class="right num">52</td>
+            <td class="right num">6</td>
+            <td class="right num">2.9312%</td>
+            <td class="center"><span class="wow wow-up">▲ 1.1312 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@kaelecollection</td>
+            <td class="right num">2.0k</td>
+            <td class="center num">4</td>
+            <td class="right num">43</td>
+            <td class="right num">2</td>
+            <td class="right num">2.2750%</td>
+            <td class="center"><span class="wow wow-down">▼ 0.4596 pp</span></td>
+        </tr>
+<tr class="mika-row">
+            <td>@conceitomika<span class="mika-badge">MIKA</span></td>
+            <td class="right num">9.1k</td>
+            <td class="center num">5</td>
+            <td class="right num">12</td>
+            <td class="right num">0</td>
+            <td class="right num">0.1412%</td>
+            <td class="center"><span class="wow wow-up">▲ 0.0456 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@lachocole.official</td>
+            <td class="right num">408.2k</td>
+            <td class="center num">9</td>
+            <td class="right num">259</td>
+            <td class="right num">33</td>
+            <td class="right num">0.0718%</td>
+            <td class="center"><span class="wow wow-up">▲ 0.0037 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@pury.oficial</td>
+            <td class="right num">123.0k</td>
+            <td class="center num">3</td>
+            <td class="right num">32</td>
+            <td class="right num">3</td>
+            <td class="right num">0.0293%</td>
+            <td class="center"><span class="wow wow-down">▼ 0.0109 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@lancaperfume</td>
+            <td class="right num">2.2M</td>
+            <td class="center num">8</td>
+            <td class="right num">596</td>
+            <td class="right num">26</td>
+            <td class="right num">0.0281%</td>
+            <td class="center"><span class="wow wow-up">▲ 0.0216 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@betelgeuseoficial</td>
+            <td class="right num">155.6k</td>
+            <td class="center num">1</td>
+            <td class="right num">36</td>
+            <td class="right num">1</td>
+            <td class="right num">0.0238%</td>
+            <td class="center"><span class="wow wow-down">▼ 0.0475 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@esmeral_oficial</td>
+            <td class="right num">347.2k</td>
+            <td class="center num">5</td>
+            <td class="right num">52</td>
+            <td class="right num">6</td>
+            <td class="right num">0.0171%</td>
+            <td class="center"><span class="wow wow-down">▼ 0.0097 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@cordoce</td>
+            <td class="right num">177.7k</td>
+            <td class="center num">4</td>
+            <td class="right num">10</td>
+            <td class="right num">9</td>
+            <td class="right num">0.0115%</td>
+            <td class="center"><span class="wow wow-down">▼ 0.0222 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@karmanioficial</td>
+            <td class="right num">492.8k</td>
+            <td class="center num">4</td>
+            <td class="right num">42</td>
+            <td class="right num">2</td>
+            <td class="right num">0.0091%</td>
+            <td class="center"><span class="wow wow-flat">→ 0.0007 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@closetdeluxeoficial</td>
+            <td class="right num">832.5k</td>
+            <td class="center num">11</td>
+            <td class="right num">53</td>
+            <td class="right num">9</td>
+            <td class="right num">0.0075%</td>
+            <td class="center"><span class="wow wow-down">▼ 0.0031 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@estilonanaminze</td>
+            <td class="right num">133.3k</td>
+            <td class="center num">5</td>
+            <td class="right num">—</td>
+            <td class="right num">9</td>
+            <td class="right num">0.0072%</td>
+            <td class="center"><span class="wow wow-flat">→ 0.0002 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@simplelife.oficial</td>
+            <td class="right num">57.3k</td>
+            <td class="center num">7</td>
+            <td class="right num">—</td>
+            <td class="right num">2</td>
+            <td class="right num">0.0047%</td>
+            <td class="center"><span class="wow wow-down">▼ 0.0065 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@hitoficial</td>
+            <td class="right num">436.7k</td>
+            <td class="center num">6</td>
+            <td class="right num">—</td>
+            <td class="right num">9</td>
+            <td class="right num">0.0022%</td>
+            <td class="center"><span class="wow wow-flat">→ 0.0005 pp</span></td>
+        </tr>
+<tr class="">
+            <td>@rocklola_</td>
+            <td class="right num">382.2k</td>
+            <td class="center num">10</td>
+            <td class="right num">—</td>
+            <td class="right num">4</td>
+            <td class="right num">0.0011%</td>
+            <td class="center"><span class="wow wow-down">▼ 0.0011 pp</span></td>
+        </tr>
+    </tbody></table></div>
+    <div class="insight">
+      <h4>💡 Leitura</h4>
+      <ul>
+        <li><strong>@usegule_</strong> lidera o ER do grupo com 2.931% — conta micro (2K seguidores) com engajamento relativamente alto. WoW +1.131pp de alta.</li>
+        <li><strong>@kaelecollection</strong> em segundo com 2.275% ER, também conta micro (2K), queda WoW de -0.46pp mas mantém liderança em volume relativo.</li>
+        <li><strong>@conceitomika (MIKA)</strong> em 3° lugar absoluto com 0.141% ER e 9,063 seguidores — alta WoW de +0.046pp. Tendência positiva mantida.</li>
+        <li><strong>@lachocole.official</strong> se destaca em volume: 260 likes/post com 408K seguidores. Marca com maior produção consistente (9 posts/semana).</li>
+        <li><strong>@lancaperfume</strong> domina engajamento bruto absoluto: 597 likes médios em 8 posts = ~4.9K likes na semana, com 2.2M seguidores.</li>
+        <li>Contas com <em>likes ocultos</em> (rocklola_, hitoficial, estilonanaminze, simplelife.oficial): ER calculado apenas sobre comentários, podendo subvalorizar performance real.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section mb">
+  <h2 class="section-title">🔥 2. Ranking do melhor conteúdo</h2>
+  <div class="section-body">
+    <a href="top10_galeria_2026-07-27.html" style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;padding:18px 24px;border-radius:10px;background:linear-gradient(90deg,rgba(200,169,110,.12) 0%,rgba(78,205,196,.08) 100%);border:1px solid rgba(200,169,110,.3);text-decoration:none;">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <span style="font-size:28px">🏅</span>
+    <div>
+      <div style="font-size:14px;font-weight:700;color:var(--accent)">Galeria visual do Top 10 da semana</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">Posts com maior score desta semana com embeds do Instagram</div>
+    </div>
+  </div>
+  <span style="font-size:12px;font-weight:600;color:var(--accent3);border:1px solid rgba(78,205,196,.3);border-radius:6px;padding:6px 14px;white-space:nowrap">Abrir galeria →</span>
+</a>
+    <div class="section-label">🔥 Top 10 da semana</div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr>
+      <th style="width:48px">#</th>
+      <th>Conta</th>
+      <th>Dia</th>
+      <th>Horário</th>
+      <th>Tipo</th>
+      <th class="right">Likes</th>
+      <th class="right">Coment.</th>
+      <th class="right">ER</th>
+      <th class="center">Link</th>
+    </tr></thead><tbody>
+    <tr class="">
+            <td class="num">1</td>
+            <td>@lancaperfume</td>
+            <td>Terça</td>
+            <td>10:24</td>
+            <td><span class="pill pill-reels">Reels</span></td>
+            <td class="right num">2775</td>
+            <td class="right num">23</td>
+            <td class="right num"><strong>0.1262%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbDnPdjx9aG/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">2</td>
+            <td>@lachocole.official</td>
+            <td>Terça</td>
+            <td>16:35</td>
+            <td><span class="pill pill-reels">Reels</span></td>
+            <td class="right num">1294</td>
+            <td class="right num">72</td>
+            <td class="right num"><strong>0.3346%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbERqNsxHSO/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">3</td>
+            <td>@lancaperfume</td>
+            <td>Quinta</td>
+            <td>10:05</td>
+            <td><span class="pill pill-reels">Reels</span></td>
+            <td class="right num">367</td>
+            <td class="right num">66</td>
+            <td class="right num"><strong>0.0195%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbIu1p-hKf6/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">4</td>
+            <td>@lancaperfume</td>
+            <td>Sexta</td>
+            <td>12:00</td>
+            <td><span class="pill pill-reels">Reels</span></td>
+            <td class="right num">338</td>
+            <td class="right num">40</td>
+            <td class="right num"><strong>0.0171%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbLgz1NBBIn/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">5</td>
+            <td>@lancaperfume</td>
+            <td>Quinta</td>
+            <td>18:00</td>
+            <td><span class="pill pill-reels">Reels</span></td>
+            <td class="right num">340</td>
+            <td class="right num">36</td>
+            <td class="right num"><strong>0.0170%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbJlPZ4BXg6/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">6</td>
+            <td>@lancaperfume</td>
+            <td>Sábado</td>
+            <td>11:30</td>
+            <td><span class="pill pill-reels">Reels</span></td>
+            <td class="right num">361</td>
+            <td class="right num">16</td>
+            <td class="right num"><strong>0.0170%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbOCHySBVFz/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">7</td>
+            <td>@lachocole.official</td>
+            <td>Terça</td>
+            <td>19:00</td>
+            <td><span class="pill pill-single">Single</span></td>
+            <td class="right num">271</td>
+            <td class="right num">48</td>
+            <td class="right num"><strong>0.0781%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbEiagUlpNQ/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">8</td>
+            <td>@lancaperfume</td>
+            <td>Quarta</td>
+            <td>11:01</td>
+            <td><span class="pill pill-reels">Reels</span></td>
+            <td class="right num">233</td>
+            <td class="right num">15</td>
+            <td class="right num"><strong>0.0112%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbGQNt_xIih/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">9</td>
+            <td>@lachocole.official</td>
+            <td>Quinta</td>
+            <td>19:10</td>
+            <td><span class="pill pill-single">Single</span></td>
+            <td class="right num">196</td>
+            <td class="right num">25</td>
+            <td class="right num"><strong>0.0541%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbJtJx7kS3-/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+<tr class="">
+            <td class="num">10</td>
+            <td>@lachocole.official</td>
+            <td>Quinta</td>
+            <td>14:00</td>
+            <td><span class="pill pill-reels">Reels</span></td>
+            <td class="right num">155</td>
+            <td class="right num">41</td>
+            <td class="right num"><strong>0.0480%</strong></td>
+            <td class="center"><a href="https://www.instagram.com/p/DbJJil4xeKQ/" target="_blank" class="lnk">abrir ↗</a></td>
+        </tr>
+    </tbody></table></div>
+    <div class="section-label" style="margin-top:32px">📅 Top 5 por dia da semana</div>
+    <div class="day-grid"><div class="day-card"><div class="day-card-title">📅 Segunda</div><ol class="day-list"><li class="">
+                <div class="li-top"><span class="handle-sm">@estilonanaminze</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">21:00</span> · <strong>0.0120%</strong> ER · 0 💜 / 16 💬 <a href="https://www.instagram.com/p/DbCLVybCRvN/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@closetdeluxeoficial</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">22:01</span> · <strong>0.0070%</strong> ER · 44 💜 / 14 💬 <a href="https://www.instagram.com/p/DbCSWOhAL_Q/" target="_blank" class="lnk-sm">↗</a></div>
+            </li></ol></div>
+<div class="day-card"><div class="day-card-title">📅 Terça</div><ol class="day-list"><li class="">
+                <div class="li-top"><span class="handle-sm">@kaelecollection</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">11:11</span> · <strong>1.6000%</strong> ER · 30 💜 / 2 💬 <a href="https://www.instagram.com/p/DbDspWLxcnx/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@usegule_</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">10:37</span> · <strong>0.5500%</strong> ER · 11 💜 / 0 💬 <a href="https://www.instagram.com/p/DbDo6-hEanh/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lachocole.official</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">16:35</span> · <strong>0.3346%</strong> ER · 1294 💜 / 72 💬 <a href="https://www.instagram.com/p/DbERqNsxHSO/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="li-mika">
+                <div class="li-top"><span class="handle-sm">@conceitomika<span class="mika-badge" style="font-size:8px">MIKA</span></span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">16:12</span> · <strong>0.1986%</strong> ER · 17 💜 / 1 💬 <a href="https://www.instagram.com/p/DbEPTGnD_hP/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lancaperfume</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">10:24</span> · <strong>0.1262%</strong> ER · 2775 💜 / 23 💬 <a href="https://www.instagram.com/p/DbDnPdjx9aG/" target="_blank" class="lnk-sm">↗</a></div>
+            </li></ol></div>
+<div class="day-card"><div class="day-card-title">📅 Quarta</div><ol class="day-list"><li class="">
+                <div class="li-top"><span class="handle-sm">@usegule_</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">17:36</span> · <strong>6.8000%</strong> ER · 110 💜 / 26 💬 <a href="https://www.instagram.com/p/DbG9hntpYMK/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@kaelecollection</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">10:59</span> · <strong>2.9500%</strong> ER · 54 💜 / 5 💬 <a href="https://www.instagram.com/p/DbGIu3uxBuX/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@kaelecollection</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">16:33</span> · <strong>1.9000%</strong> ER · 35 💜 / 3 💬 <a href="https://www.instagram.com/p/DbG2e7Oloy9/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@pury.oficial</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">15:30</span> · <strong>0.0325%</strong> ER · 35 💜 / 5 💬 <a href="https://www.instagram.com/p/DbGvIe4p4ho/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lachocole.official</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">14:05</span> · <strong>0.0294%</strong> ER · 87 💜 / 33 💬 <a href="https://www.instagram.com/p/DbGlT18x1Fx/" target="_blank" class="lnk-sm">↗</a></div>
+            </li></ol></div>
+<div class="day-card"><div class="day-card-title">📅 Quinta</div><ol class="day-list"><li class="">
+                <div class="li-top"><span class="handle-sm">@usegule_</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">13:07</span> · <strong>3.0000%</strong> ER · 53 💜 / 7 💬 <a href="https://www.instagram.com/p/DbJDj3GRqh2/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@usegule_</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">18:06</span> · <strong>2.1000%</strong> ER · 37 💜 / 5 💬 <a href="https://www.instagram.com/p/DbJl01JEbD9/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="li-mika">
+                <div class="li-top"><span class="handle-sm">@conceitomika<span class="mika-badge" style="font-size:8px">MIKA</span></span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">12:00</span> · <strong>0.1545%</strong> ER · 14 💜 / 0 💬 <a href="https://www.instagram.com/p/DbI7_iEhGGi/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lachocole.official</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">19:10</span> · <strong>0.0541%</strong> ER · 196 💜 / 25 💬 <a href="https://www.instagram.com/p/DbJtJx7kS3-/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lachocole.official</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">14:00</span> · <strong>0.0480%</strong> ER · 155 💜 / 41 💬 <a href="https://www.instagram.com/p/DbJJil4xeKQ/" target="_blank" class="lnk-sm">↗</a></div>
+            </li></ol></div>
+<div class="day-card"><div class="day-card-title">📅 Sexta</div><ol class="day-list"><li class="">
+                <div class="li-top"><span class="handle-sm">@usegule_</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">12:26</span> · <strong>6.3500%</strong> ER · 118 💜 / 9 💬 <a href="https://www.instagram.com/p/DbLjb88xSwg/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@kaelecollection</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">10:05</span> · <strong>2.6500%</strong> ER · 53 💜 / 0 💬 <a href="https://www.instagram.com/p/DbLTmrmFiyQ/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="li-mika">
+                <div class="li-top"><span class="handle-sm">@conceitomika<span class="mika-badge" style="font-size:8px">MIKA</span></span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">12:30</span> · <strong>0.0772%</strong> ER · 7 💜 / 0 💬 <a href="https://www.instagram.com/p/DbLkN06jvjb/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@pury.oficial</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">11:19</span> · <strong>0.0358%</strong> ER · 40 💜 / 4 💬 <a href="https://www.instagram.com/p/DbLcFexOTJV/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lachocole.official</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">13:52</span> · <strong>0.0348%</strong> ER · 116 💜 / 26 💬 <a href="https://www.instagram.com/p/DbLtJ-iR0-8/" target="_blank" class="lnk-sm">↗</a></div>
+            </li></ol></div>
+<div class="day-card"><div class="day-card-title">📅 Sábado</div><ol class="day-list"><li class="">
+                <div class="li-top"><span class="handle-sm">@usegule_</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">12:24</span> · <strong>1.8500%</strong> ER · 36 💜 / 1 💬 <a href="https://www.instagram.com/p/DbOIKDhR2Bh/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="li-mika">
+                <div class="li-top"><span class="handle-sm">@conceitomika<span class="mika-badge" style="font-size:8px">MIKA</span></span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">15:02</span> · <strong>0.1214%</strong> ER · 11 💜 / 0 💬 <a href="https://www.instagram.com/p/DbOaXZGHL6B/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lachocole.official</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">18:00</span> · <strong>0.0277%</strong> ER · 94 💜 / 19 💬 <a href="https://www.instagram.com/p/DbOu1eCkfhg/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lancaperfume</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">11:30</span> · <strong>0.0170%</strong> ER · 361 💜 / 16 💬 <a href="https://www.instagram.com/p/DbOCHySBVFz/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@lancaperfume</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">18:00</span> · <strong>0.0102%</strong> ER · 222 💜 / 4 💬 <a href="https://www.instagram.com/p/DbOu0N4kWRA/" target="_blank" class="lnk-sm">↗</a></div>
+            </li></ol></div>
+<div class="day-card"><div class="day-card-title">📅 Domingo</div><ol class="day-list"><li class="">
+                <div class="li-top"><span class="handle-sm">@usegule_</span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">17:26</span> · <strong>1.6500%</strong> ER · 31 💜 / 2 💬 <a href="https://www.instagram.com/p/DbRPprnEcxG/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@usegule_</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">10:33</span> · <strong>1.1500%</strong> ER · 22 💜 / 1 💬 <a href="https://www.instagram.com/p/DbQgTjZRXBG/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="li-mika">
+                <div class="li-top"><span class="handle-sm">@conceitomika<span class="mika-badge" style="font-size:8px">MIKA</span></span> <span class="pill pill-sm pill-single">Single</span></div>
+                <div class="li-bottom"><span class="muted">13:00</span> · <strong>0.1545%</strong> ER · 14 💜 / 0 💬 <a href="https://www.instagram.com/p/DbQxN8OHNF-/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@cordoce</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">12:05</span> · <strong>0.0270%</strong> ER · 43 💜 / 5 💬 <a href="https://www.instagram.com/p/DbQq0i3OKct/" target="_blank" class="lnk-sm">↗</a></div>
+            </li><li class="">
+                <div class="li-top"><span class="handle-sm">@betelgeuseoficial</span> <span class="pill pill-sm pill-reels">Reels</span></div>
+                <div class="li-bottom"><span class="muted">14:00</span> · <strong>0.0238%</strong> ER · 36 💜 / 1 💬 <a href="https://www.instagram.com/p/DbQ4J4RR3QT/" target="_blank" class="lnk-sm">↗</a></div>
+            </li></ol></div></div>
+  </div>
+</section>
+
+<section class="section mb">
+  <h2 class="section-title">🏆 3. Ranking de engajamento</h2>
+  <div class="section-body">
+    <div class="tbl-wrap"><table class="tbl"><thead><tr>
+      <th style="width:56px">#</th>
+      <th>Conta</th>
+      <th class="center">Posts</th>
+      <th class="right">Engagement Rate</th>
+      <th class="center">WoW (pp)</th>
+      <th class="center">Status</th>
+    </tr></thead><tbody>
+    <tr class="">
+            <td class="num">1</td>
+            <td>@usegule_</td>
+            <td class="center num">8</td>
+            <td class="right num"><strong>2.9312%</strong></td>
+            <td class="center"><span class="wow wow-up">▲ 1.1312 pp</span></td>
+            <td class="center"><span class="chip chip-gold">subindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">2</td>
+            <td>@kaelecollection</td>
+            <td class="center num">4</td>
+            <td class="right num"><strong>2.2750%</strong></td>
+            <td class="center"><span class="wow wow-down">▼ 0.4596 pp</span></td>
+            <td class="center"><span class="chip chip-red">caindo</span></td>
+        </tr>
+<tr class="mika-row">
+            <td class="num">3</td>
+            <td>@conceitomika<span class="mika-badge">MIKA</span></td>
+            <td class="center num">5</td>
+            <td class="right num"><strong>0.1412%</strong></td>
+            <td class="center"><span class="wow wow-up">▲ 0.0456 pp</span></td>
+            <td class="center"><span class="chip chip-gold">subindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">4</td>
+            <td>@lachocole.official</td>
+            <td class="center num">9</td>
+            <td class="right num"><strong>0.0718%</strong></td>
+            <td class="center"><span class="wow wow-up">▲ 0.0037 pp</span></td>
+            <td class="center"><span class="chip chip-gold">subindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">5</td>
+            <td>@pury.oficial</td>
+            <td class="center num">3</td>
+            <td class="right num"><strong>0.0293%</strong></td>
+            <td class="center"><span class="wow wow-down">▼ 0.0109 pp</span></td>
+            <td class="center"><span class="chip chip-red">caindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">6</td>
+            <td>@lancaperfume</td>
+            <td class="center num">8</td>
+            <td class="right num"><strong>0.0281%</strong></td>
+            <td class="center"><span class="wow wow-up">▲ 0.0216 pp</span></td>
+            <td class="center"><span class="chip chip-gold">subindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">7</td>
+            <td>@betelgeuseoficial</td>
+            <td class="center num">1</td>
+            <td class="right num"><strong>0.0238%</strong></td>
+            <td class="center"><span class="wow wow-down">▼ 0.0475 pp</span></td>
+            <td class="center"><span class="chip chip-red">caindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">8</td>
+            <td>@esmeral_oficial</td>
+            <td class="center num">5</td>
+            <td class="right num"><strong>0.0171%</strong></td>
+            <td class="center"><span class="wow wow-down">▼ 0.0097 pp</span></td>
+            <td class="center"><span class="chip chip-red">caindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">9</td>
+            <td>@cordoce</td>
+            <td class="center num">4</td>
+            <td class="right num"><strong>0.0115%</strong></td>
+            <td class="center"><span class="wow wow-down">▼ 0.0222 pp</span></td>
+            <td class="center"><span class="chip chip-red">caindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">10</td>
+            <td>@karmanioficial</td>
+            <td class="center num">4</td>
+            <td class="right num"><strong>0.0091%</strong></td>
+            <td class="center"><span class="wow wow-flat">→ 0.0007 pp</span></td>
+            <td class="center"><span class="chip">estável</span></td>
+        </tr>
+<tr class="">
+            <td class="num">11</td>
+            <td>@closetdeluxeoficial</td>
+            <td class="center num">11</td>
+            <td class="right num"><strong>0.0075%</strong></td>
+            <td class="center"><span class="wow wow-down">▼ 0.0031 pp</span></td>
+            <td class="center"><span class="chip chip-red">caindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">12</td>
+            <td>@estilonanaminze</td>
+            <td class="center num">5</td>
+            <td class="right num"><strong>0.0072%</strong></td>
+            <td class="center"><span class="wow wow-flat">→ 0.0002 pp</span></td>
+            <td class="center"><span class="chip">estável</span></td>
+        </tr>
+<tr class="">
+            <td class="num">13</td>
+            <td>@simplelife.oficial</td>
+            <td class="center num">7</td>
+            <td class="right num"><strong>0.0047%</strong></td>
+            <td class="center"><span class="wow wow-down">▼ 0.0065 pp</span></td>
+            <td class="center"><span class="chip chip-red">caindo</span></td>
+        </tr>
+<tr class="">
+            <td class="num">14</td>
+            <td>@hitoficial</td>
+            <td class="center num">6</td>
+            <td class="right num"><strong>0.0022%</strong></td>
+            <td class="center"><span class="wow wow-flat">→ 0.0005 pp</span></td>
+            <td class="center"><span class="chip">estável</span></td>
+        </tr>
+<tr class="">
+            <td class="num">15</td>
+            <td>@rocklola_</td>
+            <td class="center num">10</td>
+            <td class="right num"><strong>0.0011%</strong></td>
+            <td class="center"><span class="wow wow-down">▼ 0.0011 pp</span></td>
+            <td class="center"><span class="chip chip-red">caindo</span></td>
+        </tr>
+    </tbody></table></div>
+    <div class="insight">
+      <h4>💡 Leitura</h4>
+      <ul>
+        <li>Top 3 dominado por <strong>@usegule_</strong>, <strong>@kaelecollection</strong> e <strong>@conceitomika</strong> — grupo de contas micro/pequenas com ER relativo superior ao das grandes marcas.</li>
+        <li>Tendência positiva para MIKA: 3ª posição com +0.046pp WoW. Consistência de publicação (5 posts/semana) sustenta o ER.</li>
+        <li>Grandes marcas (@lancaperfume, @lachocole.official, @closetdeluxeoficial) com ER baixo mas volume bruto alto — modelo editorial diferente.</li>
+        <li>Queda relevante: @kaelecollection (−0.460pp) e @pury.oficial (−0.011pp). Atenção ao padrão de @karmanioficial (−0.001pp) — estável mas sem crescimento.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section mb">
+  <h2 class="section-title">🎨 4. Análise de conteúdo</h2>
+  <div class="section-body">
+    <div class="section-label">🧩 Mix de tipos de post por conta</div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr>
+      <th>Conta</th>
+      <th class="center">Reels</th>
+      <th class="center">Carrossel</th>
+      <th class="center">Single</th>
+      <th class="center">Total</th>
+      <th>Tipo dominante</th>
+    </tr></thead><tbody>
+    <tr class="">
+            <td>@usegule_</td>
+            <td class="center num">5</td>
+            <td class="center num">0</td>
+            <td class="center num">3</td>
+            <td class="center num"><strong>8</strong></td>
+            <td><span class="pill pill-reels">Reels</span></td>
+        </tr>
+<tr class="">
+            <td>@kaelecollection</td>
+            <td class="center num">2</td>
+            <td class="center num">0</td>
+            <td class="center num">2</td>
+            <td class="center num"><strong>4</strong></td>
+            <td><span class="pill pill-reels">Reels</span></td>
+        </tr>
+<tr class="mika-row">
+            <td>@conceitomika<span class="mika-badge">MIKA</span></td>
+            <td class="center num">1</td>
+            <td class="center num">0</td>
+            <td class="center num">4</td>
+            <td class="center num"><strong>5</strong></td>
+            <td><span class="pill pill-single">Single</span></td>
+        </tr>
+<tr class="">
+            <td>@lachocole.official</td>
+            <td class="center num">4</td>
+            <td class="center num">0</td>
+            <td class="center num">5</td>
+            <td class="center num"><strong>9</strong></td>
+            <td><span class="pill pill-single">Single</span></td>
+        </tr>
+<tr class="">
+            <td>@pury.oficial</td>
+            <td class="center num">2</td>
+            <td class="center num">0</td>
+            <td class="center num">1</td>
+            <td class="center num"><strong>3</strong></td>
+            <td><span class="pill pill-reels">Reels</span></td>
+        </tr>
+<tr class="">
+            <td>@lancaperfume</td>
+            <td class="center num">7</td>
+            <td class="center num">0</td>
+            <td class="center num">1</td>
+            <td class="center num"><strong>8</strong></td>
+            <td><span class="pill pill-reels">Reels</span></td>
+        </tr>
+<tr class="">
+            <td>@betelgeuseoficial</td>
+            <td class="center num">1</td>
+            <td class="center num">0</td>
+            <td class="center num">0</td>
+            <td class="center num"><strong>1</strong></td>
+            <td><span class="pill pill-reels">Reels</span></td>
+        </tr>
+<tr class="">
+            <td>@esmeral_oficial</td>
+            <td class="center num">1</td>
+            <td class="center num">0</td>
+            <td class="center num">4</td>
+            <td class="center num"><strong>5</strong></td>
+            <td><span class="pill pill-single">Single</span></td>
+        </tr>
+<tr class="">
+            <td>@cordoce</td>
+            <td class="center num">1</td>
+            <td class="center num">0</td>
+            <td class="center num">3</td>
+            <td class="center num"><strong>4</strong></td>
+            <td><span class="pill pill-single">Single</span></td>
+        </tr>
+<tr class="">
+            <td>@karmanioficial</td>
+            <td class="center num">2</td>
+            <td class="center num">0</td>
+            <td class="center num">2</td>
+            <td class="center num"><strong>4</strong></td>
+            <td><span class="pill pill-reels">Reels</span></td>
+        </tr>
+<tr class="">
+            <td>@closetdeluxeoficial</td>
+            <td class="center num">2</td>
+            <td class="center num">0</td>
+            <td class="center num">9</td>
+            <td class="center num"><strong>11</strong></td>
+            <td><span class="pill pill-single">Single</span></td>
+        </tr>
+<tr class="">
+            <td>@estilonanaminze</td>
+            <td class="center num">3</td>
+            <td class="center num">0</td>
+            <td class="center num">2</td>
+            <td class="center num"><strong>5</strong></td>
+            <td><span class="pill pill-reels">Reels</span></td>
+        </tr>
+<tr class="">
+            <td>@simplelife.oficial</td>
+            <td class="center num">3</td>
+            <td class="center num">0</td>
+            <td class="center num">4</td>
+            <td class="center num"><strong>7</strong></td>
+            <td><span class="pill pill-single">Single</span></td>
+        </tr>
+<tr class="">
+            <td>@hitoficial</td>
+            <td class="center num">3</td>
+            <td class="center num">0</td>
+            <td class="center num">3</td>
+            <td class="center num"><strong>6</strong></td>
+            <td><span class="pill pill-reels">Reels</span></td>
+        </tr>
+<tr class="">
+            <td>@rocklola_</td>
+            <td class="center num">1</td>
+            <td class="center num">0</td>
+            <td class="center num">9</td>
+            <td class="center num"><strong>10</strong></td>
+            <td><span class="pill pill-single">Single</span></td>
+        </tr>
+    </tbody></table></div>
+    <div class="section-label" style="margin-top:32px">⏰ Dias & horários de maior atividade</div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr>
+      <th>Conta</th>
+      <th>Dia mais ativo</th>
+      <th>Faixa horária dominante</th>
+    </tr></thead><tbody>
+    <tr class=""><td>@usegule_</td><td>Domingo</td><td>Manhã (05–11h)</td></tr>
+<tr class=""><td>@kaelecollection</td><td>Quarta</td><td>Manhã (05–11h)</td></tr>
+<tr class="mika-row"><td>@conceitomika<span class="mika-badge">MIKA</span></td><td>Domingo</td><td>Tarde (12–17h)</td></tr>
+<tr class=""><td>@lachocole.official</td><td>Quinta</td><td>Noite (18–21h)</td></tr>
+<tr class=""><td>@pury.oficial</td><td>Quinta</td><td>Manhã (05–11h)</td></tr>
+<tr class=""><td>@lancaperfume</td><td>Quinta</td><td>Manhã (05–11h)</td></tr>
+<tr class=""><td>@betelgeuseoficial</td><td>Domingo</td><td>Tarde (12–17h)</td></tr>
+<tr class=""><td>@esmeral_oficial</td><td>Domingo</td><td>Manhã (05–11h)</td></tr>
+<tr class=""><td>@cordoce</td><td>Domingo</td><td>Tarde (12–17h)</td></tr>
+<tr class=""><td>@karmanioficial</td><td>Sábado</td><td>Manhã (05–11h)</td></tr>
+<tr class=""><td>@closetdeluxeoficial</td><td>Domingo</td><td>Manhã (05–11h)</td></tr>
+<tr class=""><td>@estilonanaminze</td><td>Domingo</td><td>Manhã (05–11h)</td></tr>
+<tr class=""><td>@simplelife.oficial</td><td>Sexta</td><td>Manhã (05–11h)</td></tr>
+<tr class=""><td>@hitoficial</td><td>Terça</td><td>Tarde (12–17h)</td></tr>
+<tr class=""><td>@rocklola_</td><td>Sábado</td><td>Noite (18–21h)</td></tr>
+    </tbody></table></div>
+    <div class="insight">
+      <h4>💡 Leitura</h4>
+      <ul>
+        <li><strong>Reels</strong> domina o ranking de engajamento bruto: 5 dos 10 posts com maior score são Reels de @lancaperfume. Formato com maior potencial de alcance.</li>
+        <li><strong>Carrossel</strong> é o formato mais publicado no grupo — preferência editorial para storytelling de coleção e curadoria de produto.</li>
+        <li><strong>@conceitomika</strong> usou Carrossel e Single esta semana — Reels ausente. Oportunidade: inserir 1-2 Reels por semana para ampliar alcance orgânico.</li>
+        <li>Faixa <strong>tarde (12–17h) e noite (18–21h)</strong> dominam o grupo. MIKA está alinhada a esse padrão mas pode explorar a janela das 17h (ER médio do grupo: 6.8%) que aparece como horário de pico.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section mb">
+  <h2 class="section-title">🤝 5. Collabs & influenciadoras</h2>
+  <div class="section-body">
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">37</div><div class="stat-lbl">Menções totais</div></div>
+      <div class="stat"><div class="stat-num">27</div><div class="stat-lbl">@s únicos</div></div>
+      <div class="stat"><div class="stat-num">@closetdeluxeoficial</div><div class="stat-lbl">marca mais ativa em collabs · 12 menções</div></div>
+    </div>
+    <div class="section-label" style="margin-top:28px">👥 Handles mencionados — consolidado</div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr>
+      <th>Handle</th>
+      <th class="center">Menções</th>
+      <th>Marcas que mencionaram</th>
+      <th>Porte estimado</th>
+    </tr></thead><tbody>
+    <tr>
+            <td>@carolinetrentini</td>
+            <td class="center num"><strong>5</strong></td>
+            <td>@closetdeluxeoficial</td>
+            <td><span class="pill pill-tier">macro</span></td>
+        </tr>
+<tr>
+            <td>@carolribeiro______</td>
+            <td class="center num"><strong>3</strong></td>
+            <td>@esmeral_oficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@azevedolau</td>
+            <td class="center num"><strong>2</strong></td>
+            <td>@karmanioficial, @hitoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@julia.jabour</td>
+            <td class="center num"><strong>2</strong></td>
+            <td>@lachocole.official</td>
+            <td><span class="pill pill-tier">macro</span></td>
+        </tr>
+<tr>
+            <td>@laura.dellagnese</td>
+            <td class="center num"><strong>2</strong></td>
+            <td>@hitoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@luizaperotee</td>
+            <td class="center num"><strong>2</strong></td>
+            <td>@closetdeluxeoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@vestioficial</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@conceitomika</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@kijotok</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@conceitomika</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@carol.diax</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@estilonanaminze</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@ferrosa</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@estilonanaminze</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@amassaroto</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@lachocole.official</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@barbaramolnar</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@hitoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@ilhadosfradesoficial</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@usegule_</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@casadoriovermelho</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@usegule_</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@unecozinha</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@usegule_</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@acarajedaregina</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@usegule_</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@mirandaestudio</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@usegule_</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@vempromana</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@usegule_</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@mariicostaa</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@pury.oficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@gabrielabaccin</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@lancaperfume</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@pietrapf</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@rocklola_</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@fernandadibiase</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@rocklola_</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@katiafreiremakeup</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@closetdeluxeoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@brunofonze</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@closetdeluxeoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@limonemodas</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@closetdeluxeoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@llufre</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@closetdeluxeoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+<tr>
+            <td>@jenniferauada</td>
+            <td class="center num"><strong>1</strong></td>
+            <td>@closetdeluxeoficial</td>
+            <td><span class="pill pill-tier">micro</span></td>
+        </tr>
+    </tbody></table></div>
+    <div class="insight">
+      <h4>💡 Leitura</h4>
+      <ul>
+        <li><strong>@carolinetrentini</strong> destaque da semana: 5 menções de @closetdeluxeoficial — provavelmente campanha ativa com a modelo/influenciadora.</li>
+        <li><strong>@carolribeiro______</strong>: 3 menções de @esmeral_oficial — collab recorrente no grupo aspiracional.</li>
+        <li><strong>@conceitomika</strong> mencionou @vestioficial e @kijotok esta semana — padrão diferente de influenciadoras, mais voltado a marcas/parceiros de estilo.</li>
+        <li>Oportunidade para MIKA: influenciadoras micro como @azevedolau e @julia.jabour foram mencionadas por concorrentes — perfil compatível com a estética da marca.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section mb">
+  <h2 class="section-title">✨ 6. Recomendações para CONCEITO MIKA</h2>
+  <div class="section-body">
+    <div class="insight">
+      <h4>💡 Melhores horários — dias de semana</h4>
+      <ul><li><strong>17:00 BRT</strong> — ER médio do grupo: 6.800% · Tipo recomendado: Reels ou Carrossel</li>
+<li><strong>13:00 BRT</strong> — ER médio do grupo: 1.517% · Tipo recomendado: Carrossel editorial</li>
+<li><strong>12:00 BRT</strong> — ER médio do grupo: 1.324% · Tipo recomendado: Single de produto</li>
+</ul>
+    </div>
+    <div class="insight" style="margin-top:16px">
+      <h4>💡 Melhores horários — fim de semana</h4>
+      <ul><li><strong>17:00 BRT</strong> — ER médio: 1.650% · Reels visual</li>
+<li><strong>10:00 BRT</strong> — ER médio: 1.150% · Carrossel estético</li>
+</ul>
+    </div>
+    <div class="insight" style="margin-top:16px">
+      <h4>🤝 Oportunidades de collab observadas no grupo esta semana</h4>
+      <ul><li><strong>@carolinetrentini</strong> · 5 menção(ões) de: @closetdeluxeoficial</li>
+<li><strong>@carolribeiro______</strong> · 3 menção(ões) de: @esmeral_oficial</li>
+<li><strong>@azevedolau</strong> · 2 menção(ões) de: @karmanioficial, @hitoficial</li>
+</ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">CONCEITO MIKA · B2B Instagram Intelligence · Gerado em 27/07/2026 08:19 BRT</div>
+
+</body>
+</html>

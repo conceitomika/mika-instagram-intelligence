@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>🏅 Top 10 Galeria — CONCEITO MIKA · 2026-08-03 a 2026-08-09</title>
+<style>
+
+  :root{--bg:#0d0d0f;--surface:#16161a;--surface2:#1e1e24;--surface3:#232330;--border:#2a2a35;--border2:#35354a;--accent:#c8a96e;--accent2:#7c6fcd;--accent3:#4ecdc4;--accent4:#e09a4a;--text:#e8e8f0;--muted:#7a7a8c;--muted2:#5a5a6a;--green:#52d48a;--red:#e05c5c;--r:12px;--rsm:8px;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.6;}
+  a{color:var(--accent);text-decoration:none;}a:hover{color:var(--text);}
+  .header{background:linear-gradient(135deg,#13131a 0%,#1a1524 60%,#0d1a1a 100%);border-bottom:1px solid var(--border);padding:28px 40px;}
+  .header-inner{max-width:1320px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .header-title h1{font-size:22px;font-weight:700;color:var(--accent);}
+  .header-title p{font-size:13px;color:var(--muted);margin-top:4px;}
+  .header-back{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:9px 18px;font-size:12px;color:var(--muted);transition:background .2s;}
+  .header-back:hover{background:var(--surface3);color:var(--text);}
+  .sum-bar{max-width:1320px;margin:24px auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .sum-c{background:var(--surface);border:1px solid var(--border);border-radius:var(--rsm);padding:16px 20px;border-left:3px solid var(--accent);}
+  .sum-c.teal{border-left-color:var(--accent3);}.sum-c.violet{border-left-color:var(--accent2);}.sum-c.orange{border-left-color:var(--accent4);}
+  .sum-num{font-size:22px;font-weight:800;color:var(--accent);line-height:1.1;letter-spacing:-.5px;}
+  .sum-c.teal .sum-num{color:var(--accent3);}.sum-c.violet .sum-num{color:var(--accent2);}.sum-c.orange .sum-num{color:var(--accent4);}
+  .sum-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-top:4px;font-weight:600;}
+  .filter-bar{max-width:1320px;margin:8px auto 0;padding:0 40px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .filter-label{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-right:4px;}
+  .fbtn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 16px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;}
+  .fbtn:hover,.fbtn.active{background:rgba(200,169,110,.15);border-color:rgba(200,169,110,.35);color:var(--accent);}
+  .grid{max-width:1320px;margin:24px auto;padding:0 40px 60px;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr);}.sum-bar{grid-template-columns:repeat(2,1fr);}.header,.filter-bar,.sum-bar,.grid{padding-left:16px;padding-right:16px;}}
+  @media(max-width:520px){.grid{grid-template-columns:1fr;}.sum-bar{grid-template-columns:1fr;}}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .18s;}
+  .card:hover{border-color:rgba(200,169,110,.3);transform:translateY(-2px);}
+  .card-mika{border-color:rgba(200,169,110,.3);box-shadow:0 0 0 1px rgba(200,169,110,.12);}
+  .rank-bar{padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
+  .medal-gold{background:linear-gradient(90deg,rgba(200,169,110,.25) 0%,rgba(200,169,110,.05) 100%);}
+  .medal-silver{background:linear-gradient(90deg,rgba(180,180,200,.18) 0%,rgba(180,180,200,.03) 100%);}
+  .medal-bronze{background:linear-gradient(90deg,rgba(180,120,60,.18) 0%,rgba(180,120,60,.03) 100%);}
+  .medal-num{background:var(--surface3);}
+  .rank-num{font-size:18px;line-height:1;}.rank-label{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+  .rank-handle{font-size:11px;font-weight:700;color:var(--text);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rank-score{font-size:11px;color:var(--muted);font-weight:600;white-space:nowrap;}
+  .mika-badge{background:var(--accent);color:#0d0d0f;border-radius:3px;padding:1px 6px;font-size:9px;font-weight:800;margin-left:4px;letter-spacing:.4px;}
+  .embed-wrap{padding:12px;background:var(--surface2);border-bottom:1px solid var(--border);min-height:160px;position:relative;display:flex;align-items:flex-start;justify-content:center;}
+  .embed-wrap .instagram-media{margin:0!important;min-width:100%!important;}
+  .embed-fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;height:160px;color:var(--muted);}
+  .ef-icon{font-size:32px;}.ef-text{font-size:13px;font-weight:600;}
+  .ef-btn{background:var(--accent);color:#0d0d0f;padding:8px 18px;border-radius:6px;font-size:12px;font-weight:700;}
+  .post-meta{padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
+  .meta-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}.meta-stats{flex-wrap:wrap;gap:6px;}
+  .pill{display:inline-block;font-size:10px;padding:3px 10px;border-radius:4px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
+  .pill-reels{background:rgba(124,111,205,.15);color:#a89aff;}.pill-carrossel{background:rgba(78,205,196,.12);color:var(--accent3);}.pill-single{background:rgba(224,154,74,.12);color:var(--accent4);}
+  .day-tag{font-size:11px;color:var(--muted);}
+  .stat-chip{background:var(--surface3);border:1px solid var(--border);border-radius:4px;padding:3px 10px;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:4px;}
+  .stat-chip.er-chip{color:var(--accent3);border-color:rgba(78,205,196,.2);background:rgba(78,205,196,.06);}
+  .meta-caption{font-size:11px;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .meta-actions{margin-top:2px;}
+  .btn-ig{display:inline-block;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#0d0d0f;padding:7px 16px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.03em;}
+  .btn-ig:hover{filter:brightness(1.1);color:#0d0d0f;}
+  .insight-box{max-width:1320px;margin:0 auto 40px;padding:0 40px;}
+  .insight{padding:18px 22px;background:rgba(200,169,110,.04);border:1px solid rgba(200,169,110,.18);border-radius:var(--rsm);}
+  .insight h4{font-size:12px;color:var(--accent);font-weight:700;margin-bottom:10px;}
+  .insight p,.insight li{font-size:12.5px;color:var(--muted);line-height:1.75;}
+  .insight strong{color:var(--text);}
+  .insight ul{padding-left:20px;}.insight li{margin-bottom:4px;}
+  .card.hidden{display:none;}
+  .footer{border-top:1px solid var(--border);padding:20px 40px;text-align:center;font-size:11px;color:var(--muted2);}
+  ::-webkit-scrollbar{width:10px;height:10px;}::-webkit-scrollbar-track{background:var(--surface);}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:5px;}
+
+</style>
+</head>
+<body>
+<div class="header"><div class="header-inner">
+<div class="header-title">
+<h1>🏅 Top 10 da Semana — Galeria Visual</h1>
+<p>CONCEITO MIKA · Instagram Intelligence · 2026-08-03 a 2026-08-09 · Score = likes × 5 + comentários × 10</p>
+</div>
+<a class="header-back" href="dashboard_2026-08-10.html">← Voltar ao dashboard</a>
+</div></div>
+<div class="sum-bar">
+<div class="sum-c"><div class="sum-num">12.820</div><div class="sum-lbl">💜 Likes totais top 10</div></div>
+<div class="sum-c teal"><div class="sum-num">303</div><div class="sum-lbl">💬 Comentários totais</div></div>
+<div class="sum-c violet"><div class="sum-num">0,0592%</div><div class="sum-lbl">📊 ER médio top 10</div></div>
+<div class="sum-c orange"><div class="sum-num">Reels</div><div class="sum-lbl">🎬 Tipo dominante · 5 de 10</div></div>
+</div>
+<div class="filter-bar">
+<span class="filter-label">Filtrar:</span>
+<button class="fbtn active" onclick="filterCards('all',this)">Todos</button>
+<button class="fbtn" onclick="filterCards('reels',this)">Reels</button>
+<button class="fbtn" onclick="filterCards('carrossel',this)">Carrossel</button>
+<button class="fbtn" onclick="filterCards('single',this)">Single</button>
+<button class="fbtn" onclick="filterCards('mika',this)">Só CONCEITO MIKA</button>
+</div>
+<div class="grid" id="card-grid">
+<div class="card" data-type="reels" data-mika="false"><div class="rank-bar medal-gold"><span class="rank-num">🥇</span><span class="rank-label">Ouro</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">32.800 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DboYy7hpiQu/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/DboYy7hpiQu/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-reels">Reels</span><span class="meta-item day-tag">Terça · 17:12</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 6448</span><span class="stat-chip"><span class="stat-ic">💬</span> 56</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,2934%</span></div><div class="meta-caption">Salute La Casa!…</div><div class="meta-actions"><a href="https://www.instagram.com/p/DboYy7hpiQu/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="reels" data-mika="false"><div class="rank-bar medal-silver"><span class="rank-num">🥈</span><span class="rank-label">Prata</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">8.875 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DbsqrzYx7o4/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/DbsqrzYx7o4/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-reels">Reels</span><span class="meta-item day-tag">Quinta · 09:02</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 1743</span><span class="stat-chip"><span class="stat-ic">💬</span> 16</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0793%</span></div><div class="meta-caption">Sunset “La Casa”. 
+
+Nova coleção disponível no site, app e lojas. Acesse o link da bio e saiba mais.…</div><div class="meta-actions"><a href="https://www.instagram.com/p/DbsqrzYx7o4/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="carrossel" data-mika="false"><div class="rank-bar medal-bronze"><span class="rank-num">🥉</span><span class="rank-label">Bronze</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">7.160 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Dbo-y6JEXE9/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/Dbo-y6JEXE9/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-carrossel">Carrossel</span><span class="meta-item day-tag">Terça · 22:20</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 1344</span><span class="stat-chip"><span class="stat-ic">💬</span> 44</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0626%</span></div><div class="meta-caption">“La Casa” Primavera 27. 
+ 
+Disponível no site, app e lojas. Acesse no link da bio.…</div><div class="meta-actions"><a href="https://www.instagram.com/p/Dbo-y6JEXE9/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="reels" data-mika="false"><div class="rank-bar medal-num"><span class="rank-num">4️⃣</span><span class="rank-label">4º</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">5.225 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DbsygAfR7Nw/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/DbsygAfR7Nw/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-reels">Reels</span><span class="meta-item day-tag">Quinta · 10:11</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 1015</span><span class="stat-chip"><span class="stat-ic">💬</span> 15</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0465%</span></div><div class="meta-caption">Lança Squad - “La Casa”.
+
+Acesse o site no link da bio e confira a coleção completa.…</div><div class="meta-actions"><a href="https://www.instagram.com/p/DbsygAfR7Nw/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="carrossel" data-mika="false"><div class="rank-bar medal-num"><span class="rank-num">5️⃣</span><span class="rank-label">5º</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">3.250 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DbyEfhdkX9L/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/DbyEfhdkX9L/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-carrossel">Carrossel</span><span class="meta-item day-tag">Sábado · 11:23</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 622</span><span class="stat-chip"><span class="stat-ic">💬</span> 14</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0287%</span></div><div class="meta-caption">@anapaulasiebert, @olivobruna & @gabrielaversiani para Lança Perfume. 
+
+Acesse o site no link da bio e conheça a coleção…</div><div class="meta-actions"><a href="https://www.instagram.com/p/DbyEfhdkX9L/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="carrossel" data-mika="false"><div class="rank-bar medal-num"><span class="rank-num">6️⃣</span><span class="rank-label">6º</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">2.225 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Dbq7TDRCUit/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/Dbq7TDRCUit/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-carrossel">Carrossel</span><span class="meta-item day-tag">Quarta · 16:48</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 369</span><span class="stat-chip"><span class="stat-ic">💬</span> 38</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0184%</span></div><div class="meta-caption">Um encontro para celebrar a Primavera 27 e dar início a um novo capítulo da Lança Perfume.
+
+La Casa | Primavera 27…</div><div class="meta-actions"><a href="https://www.instagram.com/p/Dbq7TDRCUit/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="reels" data-mika="false"><div class="rank-bar medal-num"><span class="rank-num">7️⃣</span><span class="rank-label">7º</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">1.985 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DbvgaUdRa21/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/DbvgaUdRa21/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-reels">Reels</span><span class="meta-item day-tag">Sexta · 11:31</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 329</span><span class="stat-chip"><span class="stat-ic">💬</span> 34</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0164%</span></div><div class="meta-caption">Lançamento “La Casa” - Primavera 27.
+
+Coleção disponível no app, site e lojas.…</div><div class="meta-actions"><a href="https://www.instagram.com/p/DbvgaUdRa21/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="carrossel" data-mika="false"><div class="rank-bar medal-num"><span class="rank-num">8️⃣</span><span class="rank-label">8º</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">1.960 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Dbs4rxzkQDD/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/Dbs4rxzkQDD/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-carrossel">Carrossel</span><span class="meta-item day-tag">Quinta · 11:04</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 350</span><span class="stat-chip"><span class="stat-ic">💬</span> 21</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0167%</span></div><div class="meta-caption">Lançamento “La Casa” - Primavera 27.
+
+Conheça a nova coleção no link da bio.…</div><div class="meta-actions"><a href="https://www.instagram.com/p/Dbs4rxzkQDD/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="reels" data-mika="false"><div class="rank-bar medal-num"><span class="rank-num">9️⃣</span><span class="rank-label">9º</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">1.885 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Dbl3Wd0pKYT/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/Dbl3Wd0pKYT/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-reels">Reels</span><span class="meta-item day-tag">Segunda · 17:39</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 279</span><span class="stat-chip"><span class="stat-ic">💬</span> 49</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0148%</span></div><div class="meta-caption">A contagem regressiva começou. 
+
+O próximo capítulo da Lança Perfume começa no Rio de Janeiro. A coleção “La Casa” Prima…</div><div class="meta-actions"><a href="https://www.instagram.com/p/Dbl3Wd0pKYT/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div><div class="card" data-type="carrossel" data-mika="false"><div class="rank-bar medal-num"><span class="rank-num">🔟</span><span class="rank-label">10º</span><span class="rank-handle">@lancaperfume</span><span class="rank-score">1.765 pts</span></div><div class="embed-wrap"><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DbrKcFjieZY/?utm_source=ig_embed" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:100%;min-width:100%;padding:0;width:99.375%;"><div style="padding:16px;"><a href="https://www.instagram.com/p/DbrKcFjieZY/?utm_source=ig_embed" style="background:#FFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank"><p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;margin:0;text-align:center;">Uma publicação compartilhada por <a href="https://www.instagram.com/lancaperfume/" style="color:#c9c8cd;" target="_blank">@lancaperfume</a></p></a></div></blockquote></div><div class="post-meta"><div class="meta-row"><span class="pill pill-carrossel">Carrossel</span><span class="meta-item day-tag">Quarta · 19:00</span></div><div class="meta-row meta-stats"><span class="stat-chip"><span class="stat-ic">💜</span> 321</span><span class="stat-chip"><span class="stat-ic">💬</span> 16</span><span class="stat-chip er-chip"><span class="stat-ic">📊</span> 0,0152%</span></div><div class="meta-caption">Algumas experiências merecem ser apreciadas sem pressa.
+
+La Casa | Primavera 27…</div><div class="meta-actions"><a href="https://www.instagram.com/p/DbrKcFjieZY/" target="_blank" class="btn-ig">Ver no Instagram ↗</a></div></div></div>
+</div>
+<div class="insight-box"><div class="insight">
+<h4>💡 Análise do Top 10</h4>
+<ul>
+<li><strong>100% do Top 10 é @lancaperfume</strong> — com 2,2M de seguidores e média de 872 likes por post, o volume bruto domina naturalmente a fórmula de score. Este ranking reflete poder de audiência, não necessariamente excelência editorial.</li>
+<li>Score máximo: <strong>32.800 pts</strong> (post Reels · Terça · 17:12). Para comparação, o melhor post de MIKA na semana ficou na faixa de 50–100 pts — 50× menor em volume bruto.</li>
+<li>O ranking por <strong>ER relativo</strong> no dashboard principal revela uma imagem mais competitiva: CONCEITO MIKA está em 3º geral com 0,2617%.</li>
+</ul>
+</div></div>
+<div class="footer">CONCEITO MIKA · Instagram Intelligence · Top 10 Galeria · Semana 2026-08-03 a 2026-08-09</div>
+<script async src="//www.instagram.com/embed.js"></script>
+<script>
+
+function filterCards(filter, el) {
+  document.querySelectorAll('.fbtn').forEach(function(b){ b.classList.remove('active'); });
+  el.classList.add('active');
+  document.querySelectorAll('.card').forEach(function(card){
+    if (filter === 'all') { card.classList.remove('hidden'); return; }
+    if (filter === 'mika') { card.dataset.mika === 'true' ? card.classList.remove('hidden') : card.classList.add('hidden'); return; }
+    card.dataset.type === filter ? card.classList.remove('hidden') : card.classList.add('hidden');
+  });
+}
+
+</script>
+</body>
+</html>
