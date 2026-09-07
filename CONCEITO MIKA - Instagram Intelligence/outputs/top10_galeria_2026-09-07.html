@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>🏅 Top 10 Melhores Posts — CONCEITO MIKA · 31/08 a 06/09/2026</title>
+<style>
+  :root {
+    --bg:#0d0d0f;--surface:#16161a;--surface2:#1e1e24;--surface3:#232330;
+    --border:#2a2a35;--border2:#35354a;
+    --accent:#c8a96e;--accent2:#7c6fcd;--accent3:#4ecdc4;--accent4:#e09a4a;
+    --text:#e8e8f0;--muted:#7a7a8c;--muted2:#5a5a6a;
+    --green:#52d48a;--red:#e05c5c;
+    --r:12px;--rsm:8px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.6;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--text);}
+  .header{background:linear-gradient(135deg,#13131a 0%,#1a1524 50%,#13131a 100%);border-bottom:1px solid var(--border);padding:28px 40px;}
+  .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+  .header-title h1{font-size:22px;font-weight:700;color:var(--accent);letter-spacing:-.3px;}
+  .header-title p{font-size:13px;color:var(--muted);margin-top:3px;}
+  .back-link{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:12px;color:var(--accent);white-space:nowrap;}
+  .back-link:hover{background:var(--surface3);color:var(--text);}
+  .container{max-width:1400px;margin:0 auto;padding:32px 40px;}
+  .summary-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px;}
+  .sum-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;position:relative;overflow:hidden;}
+  .sum-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);}
+  .sum-card.orange::before{background:var(--accent4);}
+  .sum-card.violet::before{background:var(--accent2);}
+  .sum-card.teal::before{background:var(--accent3);}
+  .sum-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;font-weight:600;}
+  .sum-val{font-size:24px;font-weight:800;color:var(--accent);margin:4px 0 2px;line-height:1.2;}
+  .sum-card.orange .sum-val{color:var(--accent4);}
+  .sum-card.violet .sum-val{color:var(--accent2);}
+  .sum-card.teal .sum-val{color:var(--accent3);}
+  .sum-sub{font-size:11px;color:var(--muted);}
+  .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+  .filter-btn{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:7px 16px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;}
+  .filter-btn.active,.filter-btn:hover{background:rgba(200,169,110,.12);border-color:rgba(200,169,110,.3);color:var(--accent);}
+  .posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:24px;}
+  .post-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s;}
+  .post-card:hover{border-color:var(--border2);}
+  .mika-card{border-color:rgba(200,169,110,.3);}
+  .mika-card:hover{border-color:rgba(200,169,110,.55);}
+  .card-header{padding:14px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);}
+  .card-rank{font-size:22px;flex-shrink:0;}
+  .card-meta{flex:1;}
+  .card-account{font-size:13px;font-weight:700;color:var(--text);}
+  .card-date{font-size:11px;color:var(--muted);margin-top:1px;}
+  .mika-badge{background:var(--accent);color:#0d0d0f;border-radius:3px;padding:1px 7px;font-size:9px;font-weight:800;margin-left:5px;letter-spacing:.6px;display:inline-block;}
+  .card-score{text-align:right;}
+  .score-val{display:block;font-size:18px;font-weight:800;color:var(--accent);}
+  .score-lbl{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+  .card-pills{padding:10px 16px;display:flex;gap:6px;background:var(--surface2);border-bottom:1px solid var(--border);}
+  .pill{display:inline-block;font-size:10px;padding:3px 10px;border-radius:4px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
+  .pill-reels{background:rgba(124,111,205,.15);color:#a89aff;}
+  .pill-carrossel{background:rgba(78,205,196,.12);color:var(--accent3);}
+  .pill-single{background:rgba(224,154,74,.12);color:var(--accent4);}
+  .pill-collab{background:rgba(82,212,138,.1);color:var(--green);}
+  .card-embed{padding:12px;background:var(--surface2);border-bottom:1px solid var(--border);min-height:200px;display:flex;align-items:center;justify-content:center;}
+  .card-embed .instagram-media{margin:0 auto!important;}
+  .card-stats{display:flex;gap:0;border-bottom:1px solid var(--border);}
+  .stat-item{flex:1;padding:10px 14px;text-align:center;border-right:1px solid var(--border);font-size:12px;}
+  .stat-item:last-child{border-right:0;}
+  .stat-icon{font-size:13px;}
+  .stat-lbl{color:var(--muted);font-size:10px;}
+  .card-open-link{display:block;padding:12px 16px;text-align:center;font-size:12px;font-weight:600;color:var(--accent3);border-top:1px solid var(--border);transition:background .2s;}
+  .card-open-link:hover{background:rgba(78,205,196,.05);color:var(--text);}
+  .insight-box{margin-top:36px;padding:20px 24px;background:rgba(200,169,110,.04);border:1px solid rgba(200,169,110,.18);border-radius:var(--rsm);}
+  .insight-box h3{font-size:13px;color:var(--accent);font-weight:700;margin-bottom:12px;}
+  .insight-box ul{padding-left:18px;}
+  .insight-box li{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:6px;}
+  .insight-box strong{color:var(--text);}
+  .score-formula{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:11px;color:var(--muted);display:inline-block;margin-top:4px;}
+  .footer{border-top:1px solid var(--border);padding:20px 40px;text-align:center;font-size:11px;color:var(--muted2);letter-spacing:.04em;}
+  .hidden{display:none!important;}
+  @media(max-width:800px){
+    .header,.container{padding-left:16px;padding-right:16px;}
+    .summary-row{grid-template-columns:repeat(2,1fr);}
+    .posts-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-title">
+      <h1>🏅 Top 10 Melhores Posts da Semana</h1>
+      <p>CONCEITO MIKA · Benchmark Instagram · Semana 31/08/2026 a 06/09/2026</p>
+      <div class="score-formula">Score = likes × 5 + comentários × 10</div>
+    </div>
+    <a class="back-link" href="dashboard_2026-09-07.html">← Voltar ao Dashboard</a>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="summary-row">
+  <div class="sum-card">
+    <div class="sum-label">🏆 Maior score absoluto</div>
+    <div class="sum-val">95,815</div>
+    <div class="sum-sub">@esmeral_oficial · #1</div>
+  </div>
+  <div class="sum-card orange">
+    <div class="sum-label">🎬 Reels no Top 10</div>
+    <div class="sum-val">2</div>
+    <div class="sum-sub">de 10 posts</div>
+  </div>
+  <div class="sum-card violet">
+    <div class="sum-label">🤝 Posts com collab</div>
+    <div class="sum-val">1</div>
+    <div class="sum-sub">de 10 posts</div>
+  </div>
+  <div class="sum-card teal">
+    <div class="sum-label">📌 Marca mais representada</div>
+    <div class="sum-val">@esmeral_oficial</div>
+    <div class="sum-sub">7 posts no top 10</div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterPosts('all',this)">Todos</button>
+  <button class="filter-btn" onclick="filterPosts('Reels',this)">Reels</button>
+  <button class="filter-btn" onclick="filterPosts('Carrossel',this)">Carrossel</button>
+  <button class="filter-btn" onclick="filterPosts('Single',this)">Single</button>
+  <button class="filter-btn" onclick="filterPosts('mika',this)">Só CONCEITO MIKA</button>
+</div>
+
+<div class="posts-grid" id="postsGrid">
+<div class="post-card" data-type="Carrossel" data-account="esmeral_oficial">
+  <div class="card-header">
+    <div class="card-rank">🥇</div>
+    <div class="card-meta">
+      <div class="card-account">@esmeral_oficial</div>
+      <div class="card-date">Quinta 03/09 · 09:46 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">95,815</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dc02DELDCAj/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/Dc02DELDCAj/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/Dc02DELDCAj/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @esmeral_oficial</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>18,567</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>298</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>5,4335%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/Dc02DELDCAj/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Carrossel" data-account="esmeral_oficial">
+  <div class="card-header">
+    <div class="card-rank">🥈</div>
+    <div class="card-meta">
+      <div class="card-account">@esmeral_oficial</div>
+      <div class="card-date">Sexta 04/09 · 13:32 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">65,330</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dc30q6YEbJH/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/Dc30q6YEbJH/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/Dc30q6YEbJH/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @esmeral_oficial</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>12,674</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>196</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>3,7068%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/Dc30q6YEbJH/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Reels" data-account="esmeral_oficial">
+  <div class="card-header">
+    <div class="card-rank">🥉</div>
+    <div class="card-meta">
+      <div class="card-account">@esmeral_oficial</div>
+      <div class="card-date">Sábado 05/09 · 11:06 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">33,915</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-reels">Reels</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dc6Ifw0s-zl/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/Dc6Ifw0s-zl/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/Dc6Ifw0s-zl/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @esmeral_oficial</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>6,077</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>353</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>1,8520%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/Dc6Ifw0s-zl/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Carrossel" data-account="esmeral_oficial">
+  <div class="card-header">
+    <div class="card-rank">4️⃣</div>
+    <div class="card-meta">
+      <div class="card-account">@esmeral_oficial</div>
+      <div class="card-date">Sexta 04/09 · 19:31 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">28,455</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dc4duxribjf/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/Dc4duxribjf/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/Dc4duxribjf/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @esmeral_oficial</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>5,335</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>178</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>1,5878%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/Dc4duxribjf/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Carrossel" data-account="esmeral_oficial">
+  <div class="card-header">
+    <div class="card-rank">5️⃣</div>
+    <div class="card-meta">
+      <div class="card-account">@esmeral_oficial</div>
+      <div class="card-date">Sexta 04/09 · 08:47 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">23,420</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dc3UE3LDExH/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/Dc3UE3LDExH/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/Dc3UE3LDExH/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @esmeral_oficial</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>4,408</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>138</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>1,3093%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/Dc3UE3LDExH/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Carrossel" data-account="esmeral_oficial">
+  <div class="card-header">
+    <div class="card-rank">6️⃣</div>
+    <div class="card-meta">
+      <div class="card-account">@esmeral_oficial</div>
+      <div class="card-date">Domingo 06/09 · 18:39 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">22,430</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dc9hdP-DPcH/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/Dc9hdP-DPcH/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/Dc9hdP-DPcH/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @esmeral_oficial</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>4,298</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>94</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>1,2650%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/Dc9hdP-DPcH/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Carrossel" data-account="betelgeuseoficial">
+  <div class="card-header">
+    <div class="card-rank">7️⃣</div>
+    <div class="card-meta">
+      <div class="card-account">@betelgeuseoficial</div>
+      <div class="card-date">Terça 01/09 · 17:01 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">4,455</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DcweMw7mQC-/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/DcweMw7mQC-/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/DcweMw7mQC-/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @betelgeuseoficial</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>829</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>31</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>0,5527%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/DcweMw7mQC-/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Carrossel" data-account="lancaperfume">
+  <div class="card-header">
+    <div class="card-rank">8️⃣</div>
+    <div class="card-meta">
+      <div class="card-account">@lancaperfume</div>
+      <div class="card-date">Sexta 04/09 · 15:41 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">4,195</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    <span class="pill pill-collab">🤝 collab</span>
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dc4DdMWER3s/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/Dc4DdMWER3s/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/Dc4DdMWER3s/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @lancaperfume</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>827</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>6</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>0,0376%</strong> <span class="stat-lbl">ER</span></div>
+    <div class="stat-item"><span class="stat-icon">🤝</span> <strong>@anapaulasiebert</strong></div>
+  </div>
+  <a href="https://www.instagram.com/p/Dc4DdMWER3s/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Carrossel" data-account="esmeral_oficial">
+  <div class="card-header">
+    <div class="card-rank">9️⃣</div>
+    <div class="card-meta">
+      <div class="card-account">@esmeral_oficial</div>
+      <div class="card-date">Domingo 06/09 · 13:34 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">3,780</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-carrossel">Carrossel</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dc8-jenDDVG/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/Dc8-jenDDVG/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/Dc8-jenDDVG/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @esmeral_oficial</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>684</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>36</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>0,2074%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/Dc8-jenDDVG/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+<div class="post-card" data-type="Reels" data-account="lancaperfume">
+  <div class="card-header">
+    <div class="card-rank">🔟</div>
+    <div class="card-meta">
+      <div class="card-account">@lancaperfume</div>
+      <div class="card-date">Terça 01/09 · 16:07 BRT</div>
+    </div>
+    <div class="card-score">
+      <span class="score-val">3,225</span>
+      <span class="score-lbl">score</span>
+    </div>
+  </div>
+  <div class="card-pills">
+    <span class="pill pill-reels">Reels</span>
+    
+  </div>
+  <div class="card-embed">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DcwX9aOJdKK/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:calc(100% - 2px);">
+            <div style="padding:16px;">
+              <a href="https://www.instagram.com/p/DcwX9aOJdKK/" target="_blank" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;"><div style="background-color:#f4f4f4;border-radius:50%;flex-grow:0;height:40px;margin-right:14px;width:40px;"></div><div style="display:flex;flex-direction:column;flex-grow:1;justify-content:center;"><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;margin-bottom:6px;width:100px;"></div><div style="background-color:#f4f4f4;border-radius:4px;flex-grow:0;height:14px;width:60px;"></div></div></div>
+                <div style="padding:19% 0;"></div>
+                <div style="display:block;height:50px;margin:0 auto 12px;width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000,-20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101"/></g></g></g></svg></div>
+              </a>
+              <p style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;margin-top:8px;overflow:hidden;padding:8px 0 7px;text-align:center;text-overflow:ellipsis;white-space:nowrap;"><a href="https://www.instagram.com/p/DcwX9aOJdKK/" target="_blank" style="color:#c9c8cd;font-family:Arial,sans-serif;font-size:14px;line-height:17px;margin-bottom:0;text-decoration:none;">Ver post de @lancaperfume</a></p>
+            </div>
+          </blockquote>
+  </div>
+  <div class="card-stats">
+    <div class="stat-item"><span class="stat-icon">💜</span> <strong>591</strong> <span class="stat-lbl">likes</span></div>
+    <div class="stat-item"><span class="stat-icon">💬</span> <strong>27</strong> <span class="stat-lbl">coments.</span></div>
+    <div class="stat-item"><span class="stat-icon">📊</span> <strong>0,0279%</strong> <span class="stat-lbl">ER</span></div>
+    
+  </div>
+  <a href="https://www.instagram.com/p/DcwX9aOJdKK/" target="_blank" class="card-open-link">Abrir no Instagram ↗</a>
+</div>
+</div>
+
+<div class="insight-box">
+  <h3>💡 Leitura estratégica — Top 10 desta semana</h3>
+  <ul>
+    <li><strong>@esmeral_oficial domina 6 dos 10 melhores posts</strong> — resultado notável que indica uma campanha ou collab de alto alcance. O post #1 com 18.567 likes é atípico para o histórico do grupo e merece análise de contexto (tipo de conteúdo, influenciadora envolvida).</li>
+    <li><strong>Carrossel é o formato rainha do top 10</strong> nesta semana — todos os posts de esmeral são Carrossel, sugerindo que o formato de múltiplas imagens gera mais tempo de exposição e, consequentemente, mais engajamento.</li>
+    <li><strong>@betelgeuseoficial</strong> aparece no top 10 com um Carrossel de 829 likes — desempenho acima do esperado para uma conta de 155K. Sinal de conteúdo de produto bem executado.</li>
+    <li><strong>@lancaperfume</strong> aparece no top 10 apesar do ER relativo baixo (base de 2,2M) — mostra que volume bruto de likes ainda coloca a marca entre as mais engajadas em números absolutos.</li>
+    <li><strong>Recomendação MIKA:</strong> estudar o tipo de conteúdo que gerou o pico de @esmeral_oficial (#1 com 18K+ likes) e adaptar o conceito visual ao posicionamento MIKA. Provavelmente: collab com influenciadora de estética alinhada ao universo da marca, formato Carrossel, publicação em dia de semana entre 8h–13h BRT.</li>
+  </ul>
+</div>
+
+</div>
+
+<div class="footer">CONCEITO MIKA · B2B Instagram Intelligence · Top 10 Galeria · Gerado em 07/09/2026</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+function filterPosts(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.post-card').forEach(card => {
+    if (type === 'all') {
+      card.classList.remove('hidden');
+    } else if (type === 'mika') {
+      card.classList.toggle('hidden', card.dataset.account !== 'conceitomika');
+    } else {
+      card.classList.toggle('hidden', card.dataset.type !== type);
+    }
+  });
+}
+</script>
+</body>
+</html>
