@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>🏆 Top 10 Posts — Instagram Intelligence · CONCEITO MIKA · S20 · 2026-09-22</title>
+<style>
+  :root {
+    --bg: #0d0d0f; --surface: #16161a; --surface2: #1e1e24; --surface3: #232330;
+    --border: #2a2a35; --accent: #c8a96e; --accent2: #7c6fcd; --accent3: #4ecdc4; --accent4: #e09a4a;
+    --text: #e8e8f0; --muted: #7a7a8c; --muted2: #5a5a6a;
+    --green: #52d48a; --red: #e05c5c;
+    --r: 12px; --rsm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--text); }
+
+  .header { background: linear-gradient(135deg, #13131a 0%, #1a1524 50%, #13131a 100%); border-bottom: 1px solid var(--border); padding: 28px 40px; }
+  .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .header-title h1 { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .header-title p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 8px 16px; font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .back-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 40px; }
+
+  .score-legend { display: flex; gap: 20px; flex-wrap: wrap; padding: 14px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--rsm); margin-bottom: 36px; font-size: 12px; color: var(--muted); }
+  .score-legend strong { color: var(--text); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px; }
+
+  .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; }
+  .post-card-header { padding: 14px 18px 0; display: flex; align-items: center; justify-content: space-between; }
+  .rank-badge { width: 32px; height: 32px; border-radius: 50%; background: var(--surface3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; color: var(--muted); flex-shrink: 0; }
+  .rank-badge.r1 { background: var(--accent); color: #0d0d0f; border-color: var(--accent); }
+  .rank-badge.r2 { background: #c0c0c0; color: #0d0d0f; border-color: #c0c0c0; }
+  .rank-badge.r3 { background: #cd7f32; color: #0d0d0f; border-color: #cd7f32; }
+  .post-handle { font-size: 14px; font-weight: 700; color: var(--accent); }
+  .post-type { display: inline-block; font-size: 9px; padding: 2px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+  .type-reels     { background: rgba(124,111,205,.2); color: #a89aff; }
+  .type-carrossel { background: rgba(78,205,196,.15); color: var(--accent3); }
+  .type-single    { background: rgba(224,154,74,.15); color: var(--accent4); }
+
+  .post-embed { padding: 10px 18px; display: flex; align-items: center; justify-content: center; min-height: 200px; }
+  .post-embed .instagram-media { min-width: unset !important; width: 100% !important; max-width: 100% !important; margin: 0 !important; }
+
+  .post-metrics { padding: 14px 18px; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .metric { display: flex; flex-direction: column; align-items: center; }
+  .metric-val { font-size: 16px; font-weight: 800; color: var(--text); line-height: 1; }
+  .metric-val.score-val { color: var(--accent); }
+  .metric-val.er-val { color: var(--green); }
+  .metric-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; margin-top: 3px; font-weight: 600; }
+
+  .post-caption { padding: 10px 18px 16px; font-size: 12px; color: var(--muted); line-height: 1.6; border-top: 1px solid var(--border); }
+  .post-caption strong { color: var(--text); }
+  .post-caption .open-link { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--accent3); }
+
+  .footer { border-top: 1px solid var(--border); padding: 20px 40px; text-align: center; font-size: 11px; color: var(--muted2); margin-top: 60px; }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+
+  @media (max-width: 720px) {
+    .header, .container { padding-left: 16px; padding-right: 16px; }
+    .grid { grid-template-columns: 1fr; gap: 20px; }
+    .post-metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-title">
+      <h1>🏆 Top 10 Posts da Semana</h1>
+      <p>Instagram Intelligence · CONCEITO MIKA · S20 · 2026-09-15 a 2026-09-21 · Score = likes×5 + comentários×10</p>
+      <a class="back-link" href="dashboard_2026-09-22.html">← Voltar ao Dashboard S20</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="score-legend">
+  <span>📐 Fórmula score: <strong>likes × 5 + comentários × 10</strong></span>
+  <span>📊 ER = <strong>(likes + coment.) / seguidores × 100</strong></span>
+  <span>📅 Janela: <strong>15/09 a 21/09/2026</strong></span>
+  <span>🎯 Contas monitoradas: <strong>15</strong></span>
+</div>
+
+<div class="grid">
+
+  <!-- Rank 1 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge r1">1</div>
+      <div><span class="post-handle">@lancaperfume</span></div>
+      <span class="post-type type-reels">Reels</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdWf8CSRgUM/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">7.130</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">0,781%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">1.372</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">27</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Terça 16/09 · 14:00</strong> · @lancaperfume · 179K seguidores<br>
+      "Se o seu estilo é o clássico, garanta os seus looks no mês da cliente na Lança."
+      <a class="open-link" href="https://www.instagram.com/p/DdWf8CSRgUM/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 2 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge r2">2</div>
+      <div><span class="post-handle">@esmeral_oficial</span></div>
+      <span class="post-type type-carrossel">Carrossel</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdT92qCEZHY/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">2.875</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">1,950%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">517</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">29</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Segunda 15/09 · 14:00</strong> · @esmeral_oficial · 28K seguidores · 🤝 collab @thacianamesquita<br>
+      "Ontem rolou o lançamento da nossa 4ª collab com a @thacianamesquita e como sempre um sucesso!"
+      <a class="open-link" href="https://www.instagram.com/p/DdT92qCEZHY/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 3 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge r3">3</div>
+      <div><span class="post-handle">@lachocole.official</span></div>
+      <span class="post-type type-reels">Reels</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdUoG3zJDGt/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">2.745</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">7,443%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">493</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">28</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Segunda 15/09 · 21:00</strong> · @lachocole.official · 7K seguidores · ER mais alto da semana<br>
+      "O mix&amp;Match é quase obrigatório para a Creative Mom — Mom Style Edition | 21.09"
+      <a class="open-link" href="https://www.instagram.com/p/DdUoG3zJDGt/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 4 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge">4</div>
+      <div><span class="post-handle">@lachocole.official</span></div>
+      <span class="post-type type-reels">Reels</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdXMcEYxJm1/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">2.055</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">5,457%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">353</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">29</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Terça 16/09 · 20:00</strong> · @lachocole.official · 7K seguidores<br>
+      "Você conhece a COMFY MOM? A Comfy Mom faz do conforto parte do seu estilo. Mom Style By La Chocolê · 21.09"
+      <a class="open-link" href="https://www.instagram.com/p/DdXMcEYxJm1/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 5 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge">5</div>
+      <div><span class="post-handle">@lancaperfume</span></div>
+      <span class="post-type type-reels">Reels</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdeoF_aJwkC/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">1.570</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">0,170%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">290</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">12</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Sexta 19/09 · 18:00</strong> · @lancaperfume · 179K seguidores<br>
+      "\"La Casa\" Primavera 27 — garanta os seus desejos da temporada."
+      <a class="open-link" href="https://www.instagram.com/p/DdeoF_aJwkC/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 6 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge">6</div>
+      <div><span class="post-handle">@lancaperfume</span></div>
+      <span class="post-type type-carrossel">Carrossel</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdkAZDLif-5/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">1.375</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">0,142%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">233</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">21</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Domingo 21/09 · 20:00</strong> · @lancaperfume · 179K seguidores · 🤝 collab @reschwerz<br>
+      "@reschwerz para Lança. Coleção Primavera 27."
+      <a class="open-link" href="https://www.instagram.com/p/DdkAZDLif-5/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 7 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge">7</div>
+      <div><span class="post-handle">@lachocole.official</span></div>
+      <span class="post-type type-reels">Reels</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdcVgqZx8dW/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">1.215</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">3,171%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">201</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">21</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Quinta 18/09 · 20:00</strong> · @lachocole.official · 7K seguidores<br>
+      "GRWM com a Effortless Mom. Um look descomplicado, elegante com ar de quem ficou pronta sem esforço."
+      <a class="open-link" href="https://www.instagram.com/p/DdcVgqZx8dW/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 8 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge">8</div>
+      <div><span class="post-handle">@lancaperfume</span></div>
+      <span class="post-type type-reels">Reels</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdfJYSLxxG5/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">1.015</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">0,103%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">165</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">19</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Sexta 19/09 · 23:00</strong> · @lancaperfume · 179K seguidores<br>
+      "\"La Casa\" Primavera 27 — garanta os seus desejos da temporada."
+      <a class="open-link" href="https://www.instagram.com/p/DdfJYSLxxG5/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 9 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge">9</div>
+      <div><span class="post-handle">@lachocole.official</span></div>
+      <span class="post-type type-reels">Reels</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdhgIW2pLgC/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">980</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">2,586%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">166</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">15</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Sábado 20/09 · 21:00</strong> · @lachocole.official · 7K seguidores<br>
+      "O jeans segue fazendo sucesso temporada após temporada. Mom Style Edition — novo lançamento La Chocolê."
+      <a class="open-link" href="https://www.instagram.com/p/DdhgIW2pLgC/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+  <!-- Rank 10 -->
+  <div class="post-card">
+    <div class="post-card-header">
+      <div class="rank-badge">10</div>
+      <div><span class="post-handle">@karmanioficial</span></div>
+      <span class="post-type type-reels">Reels</span>
+    </div>
+    <div class="post-embed">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdU46jbCULq/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="post-metrics">
+      <div class="metric"><div class="metric-val score-val">905</div><div class="metric-lbl">Score</div></div>
+      <div class="metric"><div class="metric-val er-val">1,258%</div><div class="metric-lbl">ER</div></div>
+      <div class="metric"><div class="metric-val">121</div><div class="metric-lbl">Likes</div></div>
+      <div class="metric"><div class="metric-val">30</div><div class="metric-lbl">Coment.</div></div>
+    </div>
+    <div class="post-caption">
+      <strong>Segunda 15/09 · 23:00</strong> · @karmanioficial · 12K seguidores<br>
+      "Provador live da coleção: Dreamed In Barcelona 🇪🇸💫 #KRMNDreamedInBarcelona"
+      <a class="open-link" href="https://www.instagram.com/p/DdU46jbCULq/" target="_blank">Abrir no Instagram ↗</a>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="footer">
+  Instagram Intelligence · CONCEITO MIKA · Top 10 Galeria · S20 · 2026-09-22 · Score = likes×5 + comentários×10
+</div>
+
+<script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
