@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Top 10 Galeria · CONCEITO MIKA · 02–08/nov/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0f;--surface:#16161a;--surface2:#1e1e24;--surface3:#232330;
+  --border:#2a2a35;--border2:#35354a;
+  --accent:#c8a96e;--accent2:#7c6fcd;--accent3:#4ecdc4;--accent4:#e09a4a;
+  --text:#e8e8f0;--muted:#7a7a8c;--muted2:#5a5a6a;
+  --green:#52d48a;--red:#e05c5c;--yellow:#f0c060;
+  --r:12px;--rsm:8px;--rxs:5px;
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.5;padding:24px}
+a{color:var(--accent);text-decoration:none}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;margin-bottom:20px;border:1px solid var(--border);border-radius:var(--rxs);padding:5px 12px;transition:color .15s}
+.back-link:hover{color:var(--text)}
+.header-title{font-size:20px;font-weight:700;margin-bottom:4px}
+.header-sub{font-size:12px;color:var(--muted);margin-bottom:20px}
+.summary-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+@media(max-width:700px){.summary-row{grid-template-columns:repeat(2,1fr)}}
+.sum-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center}
+.sum-val{font-size:22px;font-weight:700;color:var(--accent)}
+.sum-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filter-btn{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;color:var(--muted);cursor:pointer;transition:all .15s}
+.filter-btn:hover,.filter-btn.active{background:rgba(200,169,110,.12);border-color:rgba(200,169,110,.4);color:var(--accent)}
+.posts-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:1200px){.posts-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.posts-grid{grid-template-columns:1fr}}
+.post-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.post-card:hover{border-color:var(--border2)}
+.card-mika{border-color:rgba(200,169,110,.4)!important}
+.post-rank-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--surface2);border-bottom:1px solid var(--border);font-size:12px}
+.rank-medal{font-size:16px}
+.rank-score{color:var(--muted);font-size:11px}
+.embed-wrap{padding:0;position:relative;min-height:200px;background:var(--surface2)}
+.embed-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);font-size:12px;pointer-events:none;z-index:1;transition:opacity .3s}
+.embed-loading.hidden{opacity:0}
+.spinner{width:20px;height:20px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.post-meta{padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.post-brand{font-weight:700;color:var(--accent);font-size:12px}
+.post-inf{font-size:11px;color:var(--muted)}
+.post-metrics{font-size:12px;color:var(--text)}
+.post-link{font-size:11px;color:var(--accent2);border:1px solid rgba(124,111,205,.3);border-radius:var(--rxs);padding:3px 10px;text-align:center;margin-top:4px;display:block;transition:background .15s}
+.post-link:hover{background:rgba(124,111,205,.1);text-decoration:none}
+.pill-reels{background:rgba(124,111,205,.15);border:1px solid rgba(124,111,205,.3);color:var(--accent2);border-radius:4px;padding:1px 7px;font-size:11px}
+.pill-carrossel{background:rgba(200,169,110,.12);border:1px solid rgba(200,169,110,.3);color:var(--accent);border-radius:4px;padding:1px 7px;font-size:11px}
+.pill-single{background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);color:var(--accent3);border-radius:4px;padding:1px 7px;font-size:11px}
+.insight-box{background:var(--surface);border:1px solid rgba(200,169,110,.25);border-radius:var(--r);padding:16px 20px;margin-top:24px;font-size:13px;line-height:1.7;color:var(--text)}
+.insight-box strong{color:var(--accent)}
+.footer{margin-top:28px;padding:16px;text-align:center;font-size:11px;color:var(--muted2);border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<a href="dashboard_2026-11-09.html" class="back-link">← Voltar ao Dashboard</a>
+<div class="header-title">🏆 Top 10 — Melhores Posts da Semana</div>
+<div class="header-sub">02/11/2026 a 08/11/2026 · Score: likes × 5 + comments × 10 · 15 marcas monitoradas</div>
+
+<div class="summary-row">
+  <div class="sum-card"><div class="sum-val">3.945</div><div class="sum-label">Score #1</div></div>
+  <div class="sum-card"><div class="sum-val">735</div><div class="sum-label">Mais likes</div></div>
+  <div class="sum-card"><div class="sum-val">84</div><div class="sum-label">Mais comentários</div></div>
+  <div class="sum-card"><div class="sum-val">1,0583%</div><div class="sum-label">Maior ER</div></div>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterPosts('todos')">Todos</button>
+  <button class="filter-btn" onclick="filterPosts('reels')">Reels</button>
+  <button class="filter-btn" onclick="filterPosts('carrossel')">Carrossel</button>
+  <button class="filter-btn" onclick="filterPosts('single')">Single</button>
+</div>
+
+<div class="posts-grid" id="postsGrid">
+<div class="post-card" data-brand="lachocole.official" data-type="reels">
+  <div class="post-rank-bar">
+    <span class="rank-medal">🥇</span>
+    <span class="rank-score">Score: <span>3,945</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-1">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfPuwMmRSv5/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@lachocole.official</div>
+    <div class="post-inf">Seg, 02/11 · 13h · <span class="pill-reels">Reels</span></div>
+    <div class="post-metrics">❤ 735 · 💬 27 · ER <span style="color:var(--accent3)">1,0583%</span></div>
+    <a href="https://www.instagram.com/p/DfPuwMmRSv5/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="lachocole.official" data-type="reels">
+  <div class="post-rank-bar">
+    <span class="rank-medal">🥈</span>
+    <span class="rank-score">Score: <span>3,680</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-2">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/Dfc69A-RV5_/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@lachocole.official</div>
+    <div class="post-inf">Sáb, 07/11 · 16h · <span class="pill-reels">Reels</span></div>
+    <div class="post-metrics">❤ 568 · 💬 84 · ER <span style="color:var(--accent3)">0,9056%</span></div>
+    <a href="https://www.instagram.com/p/Dfc69A-RV5_/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="lancaperfume" data-type="reels">
+  <div class="post-rank-bar">
+    <span class="rank-medal">🥉</span>
+    <span class="rank-score">Score: <span>2,225</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-3">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfPn9jPRgni/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@lancaperfume</div>
+    <div class="post-inf">Seg, 02/11 · 12h · <span class="pill-reels">Reels</span> · 🤝 @anapaulasiebert · @olivobruna</div>
+    <div class="post-metrics">❤ 379 · 💬 33 · ER <span style="color:var(--accent3)">0,0665%</span></div>
+    <a href="https://www.instagram.com/p/DfPn9jPRgni/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="closetdeluxeoficial" data-type="reels">
+  <div class="post-rank-bar">
+    <span class="rank-medal">4️⃣</span>
+    <span class="rank-score">Score: <span>1,565</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-4">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfVm7YAgxkT/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@closetdeluxeoficial</div>
+    <div class="post-inf">Qua, 04/11 · 20h · <span class="pill-reels">Reels</span></div>
+    <div class="post-metrics">❤ 255 · 💬 29 · ER <span style="color:var(--accent3)">0,4369%</span></div>
+    <a href="https://www.instagram.com/p/DfVm7YAgxkT/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="lancaperfume" data-type="carrossel">
+  <div class="post-rank-bar">
+    <span class="rank-medal">5️⃣</span>
+    <span class="rank-score">Score: <span>1,490</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-5">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfceNiOkc48/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@lancaperfume</div>
+    <div class="post-inf">Sáb, 07/11 · 12h · <span class="pill-carrossel">Carrossel</span> · 🤝 @anapaulasiebert</div>
+    <div class="post-metrics">❤ 280 · 💬 9 · ER <span style="color:var(--accent3)">0,0466%</span></div>
+    <a href="https://www.instagram.com/p/DfceNiOkc48/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="lancaperfume" data-type="reels">
+  <div class="post-rank-bar">
+    <span class="rank-medal">6️⃣</span>
+    <span class="rank-score">Score: <span>1,475</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-6">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfXRIarRev9/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@lancaperfume</div>
+    <div class="post-inf">Qui, 05/11 · 11h · <span class="pill-reels">Reels</span> · 🤝 @anapaulasiebert</div>
+    <div class="post-metrics">❤ 255 · 💬 20 · ER <span style="color:var(--accent3)">0,0444%</span></div>
+    <a href="https://www.instagram.com/p/DfXRIarRev9/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="rocklola_" data-type="carrossel">
+  <div class="post-rank-bar">
+    <span class="rank-medal">7️⃣</span>
+    <span class="rank-score">Score: <span>1,410</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-7">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfcyEqeoC7s/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@rocklola_</div>
+    <div class="post-inf">Sáb, 07/11 · 15h · <span class="pill-carrossel">Carrossel</span></div>
+    <div class="post-metrics">❤ 254 · 💬 14 · ER <span style="color:var(--accent3)">0,0558%</span></div>
+    <a href="https://www.instagram.com/p/DfcyEqeoC7s/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="closetdeluxeoficial" data-type="reels">
+  <div class="post-rank-bar">
+    <span class="rank-medal">8️⃣</span>
+    <span class="rank-score">Score: <span>1,235</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-8">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfW6mHDRRJB/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@closetdeluxeoficial</div>
+    <div class="post-inf">Qui, 05/11 · 8h · <span class="pill-reels">Reels</span></div>
+    <div class="post-metrics">❤ 185 · 💬 31 · ER <span style="color:var(--accent3)">0,3323%</span></div>
+    <a href="https://www.instagram.com/p/DfW6mHDRRJB/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="esmeral_oficial" data-type="reels">
+  <div class="post-rank-bar">
+    <span class="rank-medal">9️⃣</span>
+    <span class="rank-score">Score: <span>1,225</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-9">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfXBfCURgcL/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@esmeral_oficial</div>
+    <div class="post-inf">Qui, 05/11 · 9h · <span class="pill-reels">Reels</span></div>
+    <div class="post-metrics">❤ 173 · 💬 36 · ER <span style="color:var(--accent3)">0,0746%</span></div>
+    <a href="https://www.instagram.com/p/DfXBfCURgcL/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div><div class="post-card" data-brand="usegule_" data-type="reels">
+  <div class="post-rank-bar">
+    <span class="rank-medal">🔟</span>
+    <span class="rank-score">Score: <span>1,060</span></span>
+  </div>
+  <div class="embed-wrap">
+    <div class="embed-loading" id="loading-10">
+      <div class="spinner"></div>Carregando post...
+    </div>
+    <blockquote class="instagram-media" data-instgrm-captioned
+      data-instgrm-permalink="https://www.instagram.com/p/DfZkRhoxUuN/?utm_source=ig_embed"
+      data-instgrm-version="14"
+      style="width:100%;min-width:0;max-width:100%;margin:0;">
+    </blockquote>
+  </div>
+  <div class="post-meta">
+    <div class="post-brand">@usegule_</div>
+    <div class="post-inf">Sex, 06/11 · 9h · <span class="pill-reels">Reels</span></div>
+    <div class="post-metrics">❤ 152 · 💬 30 · ER <span style="color:var(--accent3)">0,5871%</span></div>
+    <a href="https://www.instagram.com/p/DfZkRhoxUuN/" target="_blank" rel="noopener" class="post-link">Abrir no Instagram →</a>
+  </div>
+</div>
+</div>
+
+<div class="insight-box">
+  <strong>🔍 Insight da semana:</strong> @lachocole.official domina o Top 10 com 2 posts nos primeiros lugares —
+  ER de <strong>1,0583%</strong> e <strong>0,9056%</strong>, ambos Reels. Formato vídeo curto com forte apelo visual
+  continua sendo o driver de engajamento do mercado. @lancaperfume aparece 3x no Top 10 (3º, 5º e 6º),
+  todos com collabs ativas com @anapaulasiebert — sinal de estratégia de influência consistente.
+  <strong>Oportunidade MIKA:</strong> explorar Reels em 16h (sábado) e 13h (semana) para competir no
+  mesmo território de alto engajamento.
+</div>
+
+<div class="footer">
+  CONCEITO MIKA &middot; Instagram Intelligence &middot; Pipeline semanal automatizado &middot;
+  Fonte: apify/instagram-scraper &middot; Semana 02/11/2026 a 08/11/2026
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+window.instgrm && window.instgrm.Embeds.process();
+document.querySelectorAll('.instagram-media').forEach(function(el) {
+  var obs = new MutationObserver(function(muts) {
+    muts.forEach(function(m) {
+      if (m.addedNodes.length > 0) {
+        var card = el.closest('.post-card');
+        if (card) {
+          var loader = card.querySelector('.embed-loading');
+          if (loader) loader.classList.add('hidden');
+        }
+      }
+    });
+  });
+  obs.observe(el, {childList:true, subtree:true});
+});
+function filterPosts(type) {
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  event.target.classList.add('active');
+  document.querySelectorAll('.post-card').forEach(function(card) {
+    if (type === 'todos' || card.dataset.type === type) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
